@@ -1,7 +1,9 @@
-// import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     kotlin("jvm") version "1.8.0" // kotlin!!
+
+    id("com.github.johnrengelman.shadow") version "7.1.2"
     id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.2.0"
 
     // if you are using libraries, but they return errors when loading ingame, you may want to use this
@@ -16,12 +18,12 @@ bukkitPluginYaml  {
     // read more about this way of setting up the plugin.yml here:
     // https://github.com/jpenilla/resource-factory/tree/master
 
-    main.set("me.wanttobee.template.MinecraftPlugin")
-    apiVersion.set("1.20")
+    main.set("me.wanttobee.lolcraft.MinecraftPlugin")
+    apiVersion.set("1.21")
 
     // name.set("Template") // inherits from settings.gradle, but you can override it. same goes for version
     authors.add("WantToBeeMe")
-    description.set("A super cool plugin")
+    description.set("A plugin that adds the game League of Legends in to minecraft")
 
     libraries.add("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20") // kotlin !!
 
@@ -53,9 +55,9 @@ java {
 repositories {
     mavenCentral()
     // mavenLocal()
-    // maven {
-    //     url = uri("https://jitpack.io") // Use JitPack as a resolver for GitHub releases
-    // }
+    maven {
+        url = uri("https://jitpack.io") // Use JitPack as a resolver for GitHub releases
+    }
 
     maven {
         name = "spigotmc-repo"
@@ -67,7 +69,10 @@ repositories {
 
 dependencies {
     // compileOnly() will only be used while compiling the jar but will not be included in the jar (for example the spigot api is not needed in the jar, de server already has that implemented)
-    // inplementation() will also compile, but also include it in the jar you are creating 
+    // inplementation() will also compile, but also include it in the jar you are creating
+    implementation("com.github.WantToBeeMe:CommandTree:2.213.0")
+    implementation("com.github.WantToBeeMe:EverythingItems:3.213.1")
+
     compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20") // kotlin!!
 }
@@ -86,9 +91,9 @@ tasks.processResources {
 // // this piece of code makes it so when building a jar with ./gradle clean build shadowJar
 // // that the 2 jars you will get are ProjectName.jar and ProjectName-1.0.jar
 // // here the ProjectName.jar is the correct one which you should be using
-// tasks.withType<ShadowJar> {
-//     archiveClassifier.set("")
-//     archiveVersion.set("")
-//     archiveBaseName.set(project.name)
-// }
+tasks.withType<ShadowJar> {
+    archiveClassifier.set("")
+    archiveVersion.set("")
+    archiveBaseName.set(project.name)
+}
 
