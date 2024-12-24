@@ -3,6 +3,7 @@ package me.wanttobee.lolcraft;
 import me.wanttobee.commandtree.CommandTreeSystem
 import me.wanttobee.everythingitems.ItemUtil
 import me.wanttobee.lolcraft.base.abilities.AbilityUsagesListener
+import me.wanttobee.lolcraft.base.players.PlayerContextSystem
 import me.wanttobee.lolcraft.util.LolCommands
 import me.wanttobee.lolcraft.util.MyLolCommands
 import org.bukkit.ChatColor
@@ -20,6 +21,8 @@ class MinecraftPlugin : JavaPlugin() {
         ItemUtil.initialize(instance, "${ChatColor.LIGHT_PURPLE}(I)$title")
 
         server.pluginManager.registerEvents(AbilityUsagesListener, this)
+        server.pluginManager.registerEvents(PlayerContextSystem, this)
+
         CommandTreeSystem.createCommand(LolCommands)
         CommandTreeSystem.createCommand(MyLolCommands)
 

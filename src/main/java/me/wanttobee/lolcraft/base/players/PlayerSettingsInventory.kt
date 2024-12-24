@@ -12,20 +12,21 @@ import org.bukkit.inventory.Inventory
 class PlayerSettingsInventory(private val settings: PlayerSettings) : InteractiveInventory(){
     // We don't set the owner, since if the player leaves and then rejoins, that player instance is not the same anymore, and so the owner is wrong
     override var inventory: Inventory =  Bukkit.createInventory(null, InventoryType.HOPPER ,
-        "${ChatColor.DARK_AQUA}${settings.player.name} Settings")
+        "${ChatColor.DARK_AQUA}${settings.context.player.name} Settings")
     private var settingIndex = 0
 
     init{
         val emptyItem = UniqueItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE, " ", null)
 
         addHotBarSetting()
+
         addLockedItem(1, emptyItem)
         addLockedItem(2, emptyItem)
         addLockedItem(3, emptyItem)
         addLockedItem(4, emptyItem)
     }
 
-    // HotBar setting
+    // HotBar Setting
     private fun addHotBarSetting(){
         val item = UniqueItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE, "HotBar usage", listOf(
             "${ChatColor.DARK_GRAY}Default: HotBar usage like default minecraft", "${ChatColor.DARK_GRAY}QuickCast: quick HotBar usage using the hotkeys"))

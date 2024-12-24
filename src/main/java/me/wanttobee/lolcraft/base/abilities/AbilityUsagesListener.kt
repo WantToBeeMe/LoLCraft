@@ -1,6 +1,6 @@
 package me.wanttobee.lolcraft.base.abilities
 
-import me.wanttobee.lolcraft.base.players.PlayerSettingsSystem
+import me.wanttobee.lolcraft.base.players.PlayerContextSystem
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
@@ -17,7 +17,7 @@ object AbilityUsagesListener : Listener {
     fun onItemHeld(event: PlayerItemHeldEvent) {
         val player = event.player
 
-        val settings = PlayerSettingsSystem.getSettings(player)
+        val settings = PlayerContextSystem.getContext(player).settings
         if (!settings.quickCastEnabled) return
         //val previousSlot = event.previousSlot
         //val newSlot = event.newSlot
