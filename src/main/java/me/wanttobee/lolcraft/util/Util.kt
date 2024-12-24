@@ -43,3 +43,8 @@ fun String.toLore(maxLineLength: Int): List<String> {
     }
     return loreResult
 }
+
+fun Boolean.toOnOff(): String{
+    return if(this) "on" else "off"
+}
+

@@ -1,4 +1,4 @@
-package me.wanttobee.lolcraft.players
+package me.wanttobee.lolcraft.base.players
 
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -16,7 +16,7 @@ object PlayerSettingsSystem : Listener {
 
     fun getSettings(p : Player) : PlayerSettings{
         if (!settings.containsKey(p))
-            settings[p] = PlayerSettings()
+            settings[p] = PlayerSettings(p)
         return settings[p]!!
     }
 
@@ -43,6 +43,7 @@ object PlayerSettingsSystem : Listener {
                     if(set.key == quitPlayer && set.key != player){
                         settings[player] = settings[set.key]!!
                         settings.remove(set.key)
+                        settings[player]!!.swapPlayer(player)
                     }
                 }
                 quitPlayers.remove(quitPlayer)

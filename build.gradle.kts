@@ -29,10 +29,15 @@ bukkitPluginYaml  {
 
     commands {
         register("lol") {
+            permission.set("admin.permission")
             usage.set("/lol")
             description.set("League of Legends plugin commands")
         }
 
+        register("mylol") {
+            usage.set("/mylol")
+            description.set("League of Legends plugin commands")
+        }
         // register("helloWorld") {
         //     permission.set("admin.permission")
         //     usage.set("/byeWorld reason")
@@ -71,7 +76,7 @@ dependencies {
     implementation("com.github.WantToBeeMe:CommandTree:2.213.0")
     implementation("com.github.WantToBeeMe:EverythingItems:3.213.1")
 
-    compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.21.3-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20") // kotlin!!
 }
 
