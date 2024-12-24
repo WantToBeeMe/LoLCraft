@@ -28,12 +28,10 @@ bukkitPluginYaml  {
     libraries.add("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20") // kotlin !!
 
     commands {
-        // register("helloWorld") {
-        //     usage.set("/helloWorld")
-        //     aliases.add("hw")
-        //     aliases.add("hello")
-        //     description.set("hello world command")
-        // }
+        register("lol") {
+            usage.set("/lol")
+            description.set("League of Legends plugin commands")
+        }
 
         // register("helloWorld") {
         //     permission.set("admin.permission")
