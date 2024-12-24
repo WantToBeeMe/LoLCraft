@@ -34,16 +34,13 @@ object AbilityUsagesListener : Listener {
         val heldItem = player.inventory.itemInMainHand
         if (heldItem.type == Material.AIR) return
 
-        val airBlock = player.world.getBlockAt(player.location)
-        val clickedFace = BlockFace.SELF
-
         // Trigger the use of the item programmatically
         val interactEvent = PlayerInteractEvent(
             player,
-            Action.LEFT_CLICK_AIR, // Simulates click in air
+            Action.RIGHT_CLICK_AIR, // Simulates click in air
             heldItem,
-            airBlock, // Block associated with the interaction
-            clickedFace // Face of the block (SELF is used when no real block interaction)
+            null, // Block associated with the interaction
+            BlockFace.SELF // Face of the block (SELF is used when no real block interaction)
         )
 
         // Call the event

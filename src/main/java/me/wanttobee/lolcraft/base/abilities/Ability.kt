@@ -25,6 +25,6 @@ abstract class Ability(private val defaultSlot : Slot){
     fun setToPlayer(player: Player, slot : Slot = defaultSlot){
         val hotBarItem = InteractiveHotBarItem(item)
         hotBarItem.setSlot(slot.index).giveToPlayer(player)
-        hotBarItem.setLeftClickEvent { p, _ -> invoke(p) }
+        hotBarItem.setRightClickEvent { p, _ -> invoke(p) }
     }
 }
