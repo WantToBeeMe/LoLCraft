@@ -19,8 +19,6 @@ object AbilityUsagesListener : Listener {
 
         val settings = PlayerContextSystem.getContext(player).settings
         if (!settings.quickCastEnabled) return
-        //val previousSlot = event.previousSlot
-        //val newSlot = event.newSlot
 
         if( player.inventory.heldItemSlot != Ability.Slot.PASSIVE.index)
             simulateClick(player)
@@ -34,16 +32,11 @@ object AbilityUsagesListener : Listener {
         val heldItem = player.inventory.itemInMainHand
         if (heldItem.type == Material.AIR) return
 
-        // Trigger the use of the item programmatically
         val interactEvent = PlayerInteractEvent(
-            player,
-            Action.RIGHT_CLICK_AIR, // Simulates click in air
-            heldItem,
-            null, // Block associated with the interaction
-            BlockFace.SELF // Face of the block (SELF is used when no real block interaction)
+            player, Action.RIGHT_CLICK_AIR,
+            heldItem, null,
+            BlockFace.SELF
         )
-
-        // Call the event
         Bukkit.getPluginManager().callEvent(interactEvent)
     }
 }

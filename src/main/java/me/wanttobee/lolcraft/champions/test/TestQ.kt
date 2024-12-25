@@ -4,7 +4,7 @@ import me.wanttobee.lolcraft.base.abilities.Ability
 import org.bukkit.entity.Player
 
 class TestQ : Ability(Slot.Q_ABILITY) {
-    override fun invoke(player: Player) {
-        player.sendMessage("Q")
+    override fun invoke(player: Player, chargeCount: Int) {
+        player.sendMessage("Q  ${chargeCount}")
     }
 }
