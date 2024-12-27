@@ -1,0 +1,212 @@
+{
+	"model": {
+		"type": "composite",
+		"models": [
+			{
+				"type": "select",
+				"index": 0,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "model",
+					"model": "item/stick"
+				},
+				"cases": [
+					{
+						"when": "test",
+						"model": {
+							"type": "model",
+							"model": "lol:champions/test/ability"
+						}
+					},
+					{
+						"when": "anivia_e",
+						"model": {
+							"type": "model",
+							"model": "lol:champions/anivia/e"
+						}
+					},
+					{
+						"when": "anivia_w",
+						"model": {
+							"type": "model",
+							"model": "lol:champions/anivia/w"
+						}
+					},
+					{
+						"when": "anivia_q",
+						"model": {
+							"type": "model",
+							"model": "lol:champions/anivia/q"
+						}
+					},
+					{
+						"when": "anivia_r",
+						"model": {
+							"type": "model",
+							"model": "lol:champions/anivia/r"
+						}
+					},
+					{
+						"when": "anivia_p",
+						"model": {
+							"type": "model",
+							"model": "lol:champions/anivia/p"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 1,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "disabled",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/disabled"
+						}
+					},
+					{
+						"when": "no_mana",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/no_mana"
+						}
+					},
+					{
+						"when": "silenced",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/silenced"
+						}
+					},
+					{
+						"when": "on_cooldown",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/on_cooldown"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 2,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "recast",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/recast"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 3,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "levels3_0",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels3_0"
+						}
+					},
+					{
+						"when": "levels3_1",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels3_1"
+						}
+					},
+					{
+						"when": "levels3_2",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels3_2"
+						}
+					},
+					{
+						"when": "levels3_3",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels3_3"
+						}
+					},
+					{
+						"when": "levels5_0",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels5_0"
+						}
+					},
+					{
+						"when": "levels5_1",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels5_1"
+						}
+					},
+					{
+						"when": "levels5_2",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels5_2"
+						}
+					},
+					{
+						"when": "levels5_3",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels5_3"
+						}
+					},
+					{
+						"when": "levels5_4",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels5_4"
+						}
+					},
+					{
+						"when": "levels5_5",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/levels/levels5_5"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 4,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "upgrade",
+						"model": {
+							"type": "model",
+							"model": "lol:ability_overlays/upgrade"
+						}
+					}
+				]
+			}
+		]
+	}
+}

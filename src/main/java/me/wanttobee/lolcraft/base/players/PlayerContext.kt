@@ -10,6 +10,7 @@ class PlayerContext(private var _player: Player) {
         get() = _player
 
     val settings = PlayerSettings(this)
+    val state = PlayerState(this)
 
     fun swapPlayer(newPlayer: Player) {
         _player = newPlayer

@@ -1,0 +1,17 @@
+{
+    "spells" :[
+        "barrier",
+		"clarity",
+		"cleanse",
+		"dash",
+		"exhaust",
+		"flash",
+		"ghost",
+		"heal",
+		"ignite",
+		"mark",
+		"recall",
+		"smite",
+		"teleport"
+    ]
+}

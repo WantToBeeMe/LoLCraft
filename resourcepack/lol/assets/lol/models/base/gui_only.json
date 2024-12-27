@@ -1,0 +1,25 @@
+{
+	"parent": "item/generated",
+    
+    "display": {
+        "gui": {
+            "translation": [0, 3, 0]
+        },
+        "thirdperson_righthand": {
+            "translation": [0, -2.25, 2.5],
+            "scale": [0.05, 0.05, 0.5]
+        },
+        "thirdperson_lefthand": {
+            "translation": [0, -1.75, 2.25],
+            "scale": [0.05, 0.05, 0.05]
+        },
+        "firstperson_righthand": {
+            "translation": [0, -65, 0],
+            "scale": [0.02, 0.02, 0.02]
+        },
+        "firstperson_lefthand": {
+            "translation": [0, -71, 0],
+            "scale": [0.02, 0.02, 0.02]
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "parent": "lol:base/gui_only",
+    "textures": {
+        "layer0": "lol:item/champions/anivia/q"
+    }
+}

@@ -1,6 +1,7 @@
 package me.wanttobee.lolcraft.base.abilities
 
 import me.wanttobee.lolcraft.base.players.PlayerContextSystem
+import me.wanttobee.lolcraft.base.util.AbilitySlot
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.block.BlockFace
@@ -20,10 +21,10 @@ object AbilityUsagesListener : Listener {
         val settings = PlayerContextSystem.getContext(player).settings
         if (!settings.quickCastEnabled) return
 
-        if( player.inventory.heldItemSlot != Ability.Slot.PASSIVE.index)
+        if( player.inventory.heldItemSlot != AbilitySlot.PASSIVE.index)
             simulateClick(player)
 
-        player.inventory.heldItemSlot = Ability.Slot.PASSIVE.index
+        player.inventory.heldItemSlot = AbilitySlot.PASSIVE.index
     }
 
     // even though we can also just invoke the click event right away, there might be different things that we should do with left click button

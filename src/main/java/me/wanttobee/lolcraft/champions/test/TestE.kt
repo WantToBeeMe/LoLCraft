@@ -1,14 +1,16 @@
 package me.wanttobee.lolcraft.champions.test
 
-import me.wanttobee.lolcraft.base.abilities.Ability
+import me.wanttobee.lolcraft.Test
+import me.wanttobee.lolcraft.base.abilities.AbilityState
+import me.wanttobee.lolcraft.base.abilities.AbilityItem
+import me.wanttobee.lolcraft.base.champions.ChampionState
+import me.wanttobee.lolcraft.base.util.AbilitySlot
 import org.bukkit.entity.Player
 
-class TestE : Ability(Slot.E_ABILITY) {
+class TestE(championState: ChampionState) : AbilityState(championState, TestAbility, AbilitySlot.E_ABILITY, AbilityItem("anivia_e", "Unknown Ability", null)) {
     init {
-        item.updateStringCMD(listOf("test", "disabled", "recast")).pushUpdates()
+        item.setMaxLevel(5)
+        item.setCurrentLevel(5)
     }
 
-    override fun invoke(player: Player, chargeCount: Int) {
-        player.sendMessage("E  ${chargeCount}")
-    }
 }

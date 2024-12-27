@@ -1,0 +1,7 @@
+{
+    "parent": "lol:base/gui_only",
+    "textures": {
+	  "layer0": "lol:item/ability_overlays/disabled",
+      "layer1": "lol:item/ability_overlays/on_cooldown"
+	}
+  }

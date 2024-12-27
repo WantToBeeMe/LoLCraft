@@ -33,6 +33,12 @@ bukkitPluginYaml  {
             usage.set("/lol")
             description.set("League of Legends plugin commands")
         }
+        register("testlol") {
+            permission.set("admin.permission")
+            usage.set("/testlol")
+            description.set("League of Legends plugin commands")
+        }
+
 
         register("mylol") {
             usage.set("/mylol")
@@ -74,7 +80,7 @@ dependencies {
     // compileOnly() will only be used while compiling the jar but will not be included in the jar (for example the spigot api is not needed in the jar, de server already has that implemented)
     // inplementation() will also compile, but also include it in the jar you are creating
     implementation("com.github.WantToBeeMe:CommandTree:2.213.0")
-    implementation("com.github.WantToBeeMe:EverythingItems:3.214.2")
+    implementation("com.github.WantToBeeMe:EverythingItems:3.214.3")
 
     compileOnly("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20") // kotlin!!

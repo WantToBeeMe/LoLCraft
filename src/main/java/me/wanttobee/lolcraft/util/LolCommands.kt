@@ -11,6 +11,6 @@ object LolCommands : ITreeCommand {
     override val description: Description = Description("Commands for the League of Legends plugin")
 
     override val command: ICommandPartial = BranchPartial("lol").setStaticPartials(
-        EmptyPartial("test").setEffect { invoker -> Test.setAbilities(invoker) }
+        //EmptyPartial("test").setEffect { invoker -> Test.setAbilities(invoker) }
     )
 }

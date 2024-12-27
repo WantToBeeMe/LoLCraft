@@ -6,6 +6,7 @@ import me.wanttobee.lolcraft.base.abilities.AbilityUsagesListener
 import me.wanttobee.lolcraft.base.players.PlayerContextSystem
 import me.wanttobee.lolcraft.util.LolCommands
 import me.wanttobee.lolcraft.util.MyLolCommands
+import me.wanttobee.lolcraft.util.TestLolCommands
 import org.bukkit.ChatColor
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -25,6 +26,7 @@ class MinecraftPlugin : JavaPlugin() {
 
         CommandTreeSystem.createCommand(LolCommands)
         CommandTreeSystem.createCommand(MyLolCommands)
+        CommandTreeSystem.createCommand(TestLolCommands)
 
         server.onlinePlayers.forEach { player ->
             player.sendMessage("$title Plugin has been enabled!")

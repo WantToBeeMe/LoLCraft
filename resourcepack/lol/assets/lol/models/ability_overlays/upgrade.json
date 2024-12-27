@@ -1,0 +1,11 @@
+{
+  "parent": "lol:base/gui_only",
+  "textures": {
+    "layer0": "lol:item/ability_overlays/upgrade"
+  },
+  "display": {
+    "gui": {
+      "translation": [0, 12, 0]
+    }
+  }
+}
