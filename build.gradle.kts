@@ -74,9 +74,9 @@ dependencies {
     // compileOnly() will only be used while compiling the jar but will not be included in the jar (for example the spigot api is not needed in the jar, de server already has that implemented)
     // inplementation() will also compile, but also include it in the jar you are creating
     implementation("com.github.WantToBeeMe:CommandTree:2.213.0")
-    implementation("com.github.WantToBeeMe:EverythingItems:3.213.1")
+    implementation("com.github.WantToBeeMe:EverythingItems:3.214.2")
 
-    compileOnly("org.spigotmc:spigot-api:1.21.3-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.20") // kotlin!!
 }
 
