@@ -1,6 +1,6 @@
 package me.wanttobee.lolcraft
 
-import me.wanttobee.lolcraft.base.abilities.AbilityState
+import me.wanttobee.lolcraft.base.abilities.states.AbilityState
 import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.PlayerContextSystem
 import me.wanttobee.lolcraft.base.util.AbilitySlot
@@ -40,20 +40,20 @@ object Test {
     fun setAbilities(invoker: Player){
         val s = getChampionState(invoker)
 
-        val e = TestE(s)
+        val e = AbilityState(s, TestAbilityE)
         e.maxCoolDown = 20
         s.setAbility(e)
 
-        val q = TestQ(s)
+        val q = AbilityState(s, TestAbilityQ)
         q.maxCoolDown = 70
         s.setAbility(q)
 
-        val r = TestR(s)
+        val r = AbilityState(s, TestAbilityR)
         r.maxCoolDown = 360
         s.setAbility(r)
 
-        s.setAbility(TestW(s))
-        otherAbility = TestW(s)
+        s.setAbility(AbilityState(s, TestAbilityW))
+        otherAbility = AbilityState(s, TestAbilityW)
     }
 
     fun otherThing(invoker: Player){

@@ -1,10 +1,11 @@
-package me.wanttobee.lolcraft.base.abilities
+package me.wanttobee.lolcraft.base.abilities.states
 
-import com.sun.org.apache.xpath.internal.operations.Bool
+import me.wanttobee.everythingitems.interactiveitems.InteractiveHotBarItem
 import me.wanttobee.lolcraft.MinecraftPlugin
+import me.wanttobee.lolcraft.base.abilities.AbilityItem
+import me.wanttobee.lolcraft.base.abilities.IAbility
 import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.PlayerContext
-import me.wanttobee.lolcraft.base.util.AbilitySlot
 import me.wanttobee.lolcraft.base.util.CCGroupState
 import org.bukkit.Bukkit
 
@@ -18,7 +19,9 @@ import org.bukkit.Bukkit
 //  - the actual function implementation
 //  - should not have effect if it's in a hand yes or no  (Hwei & Viego)
 //        -=-
-open class AbilityState(val championState: ChampionState, val ablity : IAbility, val defaultSlot : AbilitySlot, val item : AbilityItem)  {
+open class AbilityState(val championState: ChampionState, val ability : IAbility)  {
+
+    val item = AbilityItem(ability.iconTextureName, ability.title, null)
 
     val owner: PlayerContext
         get() = championState.owner
@@ -41,10 +44,11 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
 
      fun invokePassive(){
          // Passives still go through if the player is disrupted
+         // This is not any passive with a cooldown (e.g. anivia egg), instead this is passives like akshan's passives
          if(currentCoolDown != 0)
              return
 
-         ablity.invokePassive(this)
+         ability.invokePassive(this)
      }
 
      fun invoke(count: Int){
@@ -111,5 +115,10 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
          // Note that you can do +1 for both to ensure server does not lag and stuff. also note that this may also change depending on the server specs
 
          chargeTasks = taskId
+    }
+
+    open fun createNewHotBarItem() : InteractiveHotBarItem{
+        return InteractiveHotBarItem(item)
+            .setRightClickEvent { _,_ -> chargeAbility() }
     }
 }

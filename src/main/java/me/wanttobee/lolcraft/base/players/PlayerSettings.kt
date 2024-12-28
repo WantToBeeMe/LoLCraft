@@ -1,6 +1,5 @@
 package me.wanttobee.lolcraft.base.players
 
-import me.wanttobee.lolcraft.base.abilities.AbilityState
 import me.wanttobee.lolcraft.base.util.AbilitySlot
 
 // -=- Player Settings -=-
