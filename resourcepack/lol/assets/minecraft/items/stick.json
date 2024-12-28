@@ -206,6 +206,127 @@
 						}
 					}
 				]
+			},
+			{
+				"type": "select",
+				"index": 5,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "1th_0",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_0"
+						}
+					},
+					{
+						"when": "1th_1",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_1"
+						}
+					},
+					{
+						"when": "1th_2",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_2"
+						}
+					},
+					{
+						"when": "1th_3",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_3"
+						}
+					},
+					{
+						"when": "1th_4",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_4"
+						}
+					},
+					{
+						"when": "1th_5",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_5"
+						}
+					},
+					{
+						"when": "1th_6",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_6"
+						}
+					},
+					{
+						"when": "1th_7",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_7"
+						}
+					},
+					{
+						"when": "1th_8",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_8"
+						}
+					},
+					{
+						"when": "1th_9",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/1th_9"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 6,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "2th_0",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/2th_0"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 7,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "3th_0",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/3th_0"
+						}
+					},
+					{
+						"when": "3th_1",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/3th_1"
+						}
+					}
+				]
 			}
 		]
 	}

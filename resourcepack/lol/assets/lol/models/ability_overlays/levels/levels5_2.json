@@ -1,5 +1,5 @@
 {
-  "parent": "lol:ability_overlays/levels/base_levels",
+  "parent": "lol:base/base_levels",
   "textures": {
     "layer0": "lol:item/ability_overlays/levels/levels5_back",
     "layer1": "lol:item/ability_overlays/levels/levels3_1",

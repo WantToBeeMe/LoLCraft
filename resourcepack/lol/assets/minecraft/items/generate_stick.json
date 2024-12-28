@@ -39,6 +39,26 @@
 	
 	"overlays_layer_4":[
 		{ "when": "upgrade", "model": "lol:ability_overlays/upgrade" }
+	],
+
+	"overlays_layer_5":[
+		{ "when": "1th_0", "model": "lol:gui_item_count/1th_0" },
+		{ "when": "1th_1", "model": "lol:gui_item_count/1th_1" },
+		{ "when": "1th_2", "model": "lol:gui_item_count/1th_2" },
+		{ "when": "1th_3", "model": "lol:gui_item_count/1th_3" },
+		{ "when": "1th_4", "model": "lol:gui_item_count/1th_4" },
+		{ "when": "1th_5", "model": "lol:gui_item_count/1th_5" },
+		{ "when": "1th_6", "model": "lol:gui_item_count/1th_6" },
+		{ "when": "1th_7", "model": "lol:gui_item_count/1th_7" },
+		{ "when": "1th_8", "model": "lol:gui_item_count/1th_8" },
+		{ "when": "1th_9", "model": "lol:gui_item_count/1th_9" }
+	],
+	"overlays_layer_6":[	
+		{ "when": "2th_0", "model": "lol:gui_item_count/2th_0" }
+	],
+	"overlays_layer_7":[
+		{ "when": "3th_0", "model": "lol:gui_item_count/3th_0" },
+		{ "when": "3th_1", "model": "lol:gui_item_count/3th_1" }
 	]
 
 }

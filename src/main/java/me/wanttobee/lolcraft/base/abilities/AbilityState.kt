@@ -1,6 +1,5 @@
 package me.wanttobee.lolcraft.base.abilities
 
-import me.wanttobee.everythingitems.interactiveitems.InteractiveHotBarItem
 import me.wanttobee.lolcraft.MinecraftPlugin
 import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.PlayerContext
@@ -25,6 +24,11 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
     val owner: PlayerContext
         get() = championState.owner
 
+    var maxCoolDown : Int = 1
+        set(value) { field = value.coerceIn(1, null) }
+    private var currentCoolDown : Int = 0
+    private var coolDownTaskId: Int? = null
+
     init {
         owner.state.isSilenced.subscribe(this)
     }
@@ -35,12 +39,48 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
     }
 
      fun invokePassive(){
+         if(currentCoolDown != 0)
+             return
+
          ablity.invokePassive(this)
      }
 
-    fun invoke(count: Int){
-        owner.player.sendMessage("temporary invoke $count")
+     fun invoke(count: Int){
+         startCoolDown()
+         owner.player.sendMessage("temporary invoke $count")
+     }
+
+
+
+    fun startCoolDown() {
+        currentCoolDown = maxCoolDown
+        item.setOnCoolDown(currentCoolDown)
+
+        // restarting when for some reason the coolDown already exists
+        // this should actually never happen, but you never know
+        coolDownTaskId?.let { Bukkit.getScheduler().cancelTask(it) }
+
+        // Schedule a repeating task to count down the coolDown
+        coolDownTaskId = Bukkit.getScheduler().scheduleSyncRepeatingTask(MinecraftPlugin.instance, {
+            if (currentCoolDown > 0) {
+                currentCoolDown -= 1
+                item.setOnCoolDown(currentCoolDown)
+            }
+            else {
+                coolDownTaskId?.let { Bukkit.getScheduler().cancelTask(it) }
+                coolDownTaskId = null
+            }
+        }, 20L, 20L) // 20 ticks = 1 second
     }
+
+    fun cancelCoolDown() {
+        // Immediately stop the coolDown and reset the values
+        coolDownTaskId?.let { Bukkit.getScheduler().cancelTask(it) }
+        coolDownTaskId = null
+        currentCoolDown = 0
+        item.setOnCoolDown(0)
+    }
+
 
      // TODO: temporary placement
      //    - Instead we should have some overrides, so that we can chose between different states for abilities

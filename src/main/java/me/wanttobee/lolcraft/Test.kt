@@ -23,9 +23,18 @@ object Test {
     fun setAbilities(invoker: Player){
         val s = getChampionState(invoker)
 
-        s.setAbility(TestE(s))
-        s.setAbility(TestQ(s))
-        s.setAbility(TestR(s))
+        val e = TestE(s)
+        e.maxCoolDown = 20
+        s.setAbility(e)
+
+        val q = TestQ(s)
+        q.maxCoolDown = 70
+        s.setAbility(q)
+
+        val r = TestR(s)
+        r.maxCoolDown = 360
+        s.setAbility(r)
+
         s.setAbility(TestW(s))
         otherAbility = TestW(s)
     }

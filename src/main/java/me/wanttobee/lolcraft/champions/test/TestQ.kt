@@ -11,7 +11,6 @@ class TestQ(championState: ChampionState) : AbilityState(championState, TestAbil
     init{
         item.setMaxLevel(5)
         item.setCurrentLevel(2)
-        item.setOnCoolDown(true)
     }
 
 }

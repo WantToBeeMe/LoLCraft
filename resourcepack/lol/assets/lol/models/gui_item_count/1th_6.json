@@ -1,0 +1,11 @@
+{
+    "parent": "lol:base/gui_only",
+    "textures": {
+      "layer0": "lol:item/gui_item_count/1th_6"
+	  },
+    "display": {
+    "gui": {
+      "translation": [-1, -1, 0]
+    }
+  }
+}
