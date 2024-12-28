@@ -1,10 +1,13 @@
-package me.wanttobee.lolcraft
+package me.wanttobee.lolcraft.test
 
 import me.wanttobee.lolcraft.base.abilities.states.AbilityState
 import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.PlayerContextSystem
 import me.wanttobee.lolcraft.base.util.AbilitySlot
-import me.wanttobee.lolcraft.champions.test.*
+import me.wanttobee.lolcraft.test.champion.TestAbilityE
+import me.wanttobee.lolcraft.test.champion.TestAbilityQ
+import me.wanttobee.lolcraft.test.champion.TestAbilityR
+import me.wanttobee.lolcraft.test.champion.TestAbilityW
 import org.bukkit.entity.Player
 
 object Test {

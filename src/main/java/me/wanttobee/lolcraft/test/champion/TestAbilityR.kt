@@ -1,4 +1,4 @@
-package me.wanttobee.lolcraft.champions.test
+package me.wanttobee.lolcraft.test.champion
 
 import me.wanttobee.lolcraft.base.abilities.states.AbilityState
 import me.wanttobee.lolcraft.base.abilities.IAbility
