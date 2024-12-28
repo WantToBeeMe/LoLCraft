@@ -56,7 +56,7 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         pushUpdates()
     }
 
-    fun setSilenced(value: Boolean) {
+    fun setDisrupted(value: Boolean) {
         stateSilenced = value
         resetCMDState()
     }

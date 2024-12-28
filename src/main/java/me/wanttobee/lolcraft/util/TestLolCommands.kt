@@ -14,7 +14,8 @@ object TestLolCommands : ITreeCommand {
         .addSubDescription("settings", "Opens your settings window", "/testlol")
 
     override val command: ICommandPartial = BranchPartial("testlol").setStaticPartials(
-        BooleanPartial("silence").setEffect { invoker, silenced -> PlayerContextSystem.getContext(invoker).state.isSilenced.value = silenced },
+        BooleanPartial("silence").setEffect { invoker, value -> Test.setSilence(invoker, value) },
+        BooleanPartial("stun").setEffect { invoker, value -> Test.setStun(invoker, value) },
         EmptyPartial("abilities").setEffect { invoker -> Test.setAbilities(invoker) } ,
         EmptyPartial("otherThing").setEffect { invoker -> Test.otherThing(invoker) }
     )

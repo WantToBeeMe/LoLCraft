@@ -1,13 +1,12 @@
 package me.wanttobee.lolcraft.base.abilities
 
+import com.sun.org.apache.xpath.internal.operations.Bool
 import me.wanttobee.lolcraft.MinecraftPlugin
 import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.PlayerContext
 import me.wanttobee.lolcraft.base.util.AbilitySlot
-import me.wanttobee.lolcraft.base.util.IValueObserver
-import me.wanttobee.lolcraft.base.util.ObservableValue
+import me.wanttobee.lolcraft.base.util.CCGroupState
 import org.bukkit.Bukkit
-import org.bukkit.entity.Player
 
 // -= Ability State =-
 // Only responsible for managing its own state of the ability, but the generic stuff
@@ -19,7 +18,7 @@ import org.bukkit.entity.Player
 //  - the actual function implementation
 //  - should not have effect if it's in a hand yes or no  (Hwei & Viego)
 //        -=-
-open class AbilityState(val championState: ChampionState, val ablity : IAbility, val defaultSlot : AbilitySlot, val item : AbilityItem) : IValueObserver {
+open class AbilityState(val championState: ChampionState, val ablity : IAbility, val defaultSlot : AbilitySlot, val item : AbilityItem)  {
 
     val owner: PlayerContext
         get() = championState.owner
@@ -28,17 +27,20 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
         set(value) { field = value.coerceIn(1, null) }
     private var currentCoolDown : Int = 0
     private var coolDownTaskId: Int? = null
+    private var isDisrupted: Boolean = false
+
 
     init {
-        owner.state.isSilenced.subscribe(this)
+        owner.state.disrupts.subscribe(::onStunOrSilence)
     }
 
-    override fun valueChanged(value: ObservableValue<*>) {
-        val isSilenced = value as? ObservableValue<Boolean> ?: return
-        item.setSilenced(isSilenced.value)
+    private fun onStunOrSilence(disrupt: CCGroupState) {
+        isDisrupted = disrupt.value
+        item.setDisrupted(isDisrupted)
     }
 
      fun invokePassive(){
+         // Passives still go through if the player is disrupted
          if(currentCoolDown != 0)
              return
 
@@ -46,11 +48,12 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
      }
 
      fun invoke(count: Int){
+         if(currentCoolDown != 0 || isDisrupted)
+             return
+
          startCoolDown()
          owner.player.sendMessage("temporary invoke $count")
      }
-
-
 
     fun startCoolDown() {
         currentCoolDown = maxCoolDown
@@ -80,7 +83,6 @@ open class AbilityState(val championState: ChampionState, val ablity : IAbility,
         currentCoolDown = 0
         item.setOnCoolDown(0)
     }
-
 
      // TODO: temporary placement
      //    - Instead we should have some overrides, so that we can chose between different states for abilities

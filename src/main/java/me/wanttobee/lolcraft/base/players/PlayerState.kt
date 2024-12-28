@@ -1,8 +1,8 @@
 package me.wanttobee.lolcraft.base.players
 
 import me.wanttobee.everythingitems.interactiveitems.InteractiveHotBarItem
-import me.wanttobee.lolcraft.base.abilities.AbilityState
-import me.wanttobee.lolcraft.base.util.ObservableValue
+import me.wanttobee.lolcraft.base.util.CCGroupState
+import me.wanttobee.lolcraft.base.util.CCState
 
 // TODO: Subject to change
 // -=- Player State -=-
@@ -10,15 +10,43 @@ import me.wanttobee.lolcraft.base.util.ObservableValue
 //  are all the info that happens inGame
 //         -=-
 class PlayerState(override val context: PlayerContext) : IPlayerContextPart {
+    val airborne = CCState("Airborne")
+    val blinded = CCState("Blind")
+    val crippled = CCState("Cripple")
+    val disarmed = CCState("Disarm")
+    val disrupted = CCState("Disrupt")
+    val drowsy = CCState("Drowsy")
+    val sleep = CCState("Sleep")
+    val forceAction = CCState("Forced Action") // Charm - Flee - Taunt - Berserk  (these might need to be split, but not sure yet)
+    val grounded = CCState("Ground")
+    val kinematics = CCState("Kinematics")
+    val knockdown = CCState("Knockdown")
+    val nearsighted = CCState("Nearsighted")
+    val rooted = CCState("Root")
+    val silenced = CCState("Silence")
+    val slow = CCState("Slow")
+    val stasis = CCState("Stasis")
+    val stunned = CCState("Stun")
+    val suppression = CCState("Suppression")
 
-    // TODO: This system should be changed
-    //  E.g. if you get stunned it should also silence you
-    //   now if that happens you can still turn silence off, but that should not be possible
-    //   if you then turn silenced off, it should not send out an signal, instead it should send out the signal when the stun also wears off
-
-    // TODO: Its even wors then i though, with this we cant even seperate 2 different bool values from eachother
-    val isSilenced = ObservableValue(false)
-
+    val totalCC = CCGroupState("Total CC",
+        airborne, forceAction, sleep, stasis, stunned, suppression
+    )
+    val disrupts = CCGroupState("Disrupts",
+        airborne, forceAction, silenced, sleep, stasis, stunned, suppression
+    )
+    val immobilizing = CCGroupState("Immobilizing",
+        airborne, forceAction, rooted, sleep, stasis, stunned, suppression
+    )
+    val disarms = CCGroupState("Disarms",
+        airborne, forceAction, disarmed, sleep, stasis, stunned, suppression
+    )
+    val impairsMovement = CCGroupState("Impairs movement",
+        airborne, drowsy, forceAction, grounded, rooted, sleep, slow, stasis, stunned, suppression
+    )
+    val impairsActions = CCGroupState("Impairs actions",
+        airborne, crippled, drowsy, disarmed ,forceAction, grounded, silenced, sleep, slow, rooted ,stasis, stunned, suppression
+    )
 
     val abilities: Array<InteractiveHotBarItem?> = arrayOfNulls(9)
 }
