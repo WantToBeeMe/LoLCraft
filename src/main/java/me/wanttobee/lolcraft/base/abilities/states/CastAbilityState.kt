@@ -1,9 +1,17 @@
 package me.wanttobee.lolcraft.base.abilities.states
 
+import me.wanttobee.everythingitems.interactiveitems.InteractiveHotBarItem
 import me.wanttobee.lolcraft.base.abilities.IAbility
 import me.wanttobee.lolcraft.base.champions.ChampionState
-import me.wanttobee.lolcraft.base.util.AbilitySlot
 
-class CastAbilityState(championState: ChampionState, ability : IAbility)  : AbilityState(championState, ability) {
+open class CastAbilityState<T>(championState: T, ability : IAbility<T>) : PassiveAbilityState<T>(championState, ability)  where T : ChampionState {
 
+    protected open fun invokeRightClick() {
+        invokeInitial()
+    }
+
+    override fun createNewHotBarItem() : InteractiveHotBarItem {
+        return InteractiveHotBarItem(item)
+            .setRightClickEvent { _,_ -> invokeRightClick() }
+    }
 }

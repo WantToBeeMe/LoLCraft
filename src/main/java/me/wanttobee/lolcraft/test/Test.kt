@@ -1,18 +1,14 @@
 package me.wanttobee.lolcraft.test
 
-import me.wanttobee.lolcraft.base.abilities.states.AbilityState
-import me.wanttobee.lolcraft.base.champions.ChampionState
+import me.wanttobee.lolcraft.base.abilities.states.*
 import me.wanttobee.lolcraft.base.players.PlayerContextSystem
 import me.wanttobee.lolcraft.base.util.AbilitySlot
-import me.wanttobee.lolcraft.test.champion.TestAbilityE
-import me.wanttobee.lolcraft.test.champion.TestAbilityQ
-import me.wanttobee.lolcraft.test.champion.TestAbilityR
-import me.wanttobee.lolcraft.test.champion.TestAbilityW
+import me.wanttobee.lolcraft.test.champion.*
 import org.bukkit.entity.Player
 
 object Test {
-    private var championState : ChampionState? = null
-    private var otherAbility : AbilityState? = null
+    private var championState : TestChampion? = null
+    private var otherAbility : BaseAbilityState<*>? = null
 
     private var stunId : Int = -1
     private var silenceId: Int = -1
@@ -34,29 +30,22 @@ object Test {
 
 
 
-    private fun getChampionState(invoker: Player): ChampionState{
+    private fun getChampionState(invoker: Player): TestChampion{
         if(championState == null)
-            championState = ChampionState(PlayerContextSystem.getContext(invoker))
+            championState = TestChampion(PlayerContextSystem.getContext(invoker))
         return championState!!
     }
 
     fun setAbilities(invoker: Player){
         val s = getChampionState(invoker)
 
-        val e = AbilityState(s, TestAbilityE)
-        e.maxCoolDown = 20
-        s.setAbility(e)
+        s.setAbility(CastAbilityState(s, TestAbilityE).postInitialize())
+        s.setAbility(CastAbilityState(s, TestAbilityW).postInitialize())
+        s.setAbility(RecastAbilityState(s, TestRecastAbility).postInitialize())
+        s.setAbility(ToggleAbilityState(s, TestToggleAbility).postInitialize())
+        s.setAbility(PassiveAbilityState(s, TestPassiveAbility).postInitialize())
 
-        val q = AbilityState(s, TestAbilityQ)
-        q.maxCoolDown = 70
-        s.setAbility(q)
-
-        val r = AbilityState(s, TestAbilityR)
-        r.maxCoolDown = 360
-        s.setAbility(r)
-
-        s.setAbility(AbilityState(s, TestAbilityW))
-        otherAbility = AbilityState(s, TestAbilityW)
+        otherAbility = CastAbilityState(s, TestAbilityW).postInitialize()
     }
 
     fun otherThing(invoker: Player){

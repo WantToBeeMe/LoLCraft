@@ -2,5 +2,11 @@
     "parent": "lol:base/gui_only",
     "textures": {
       "layer0": "lol:item/ability_overlays/recast"
-	}
+	  },
+    "display": {
+      "gui": {
+        "scale": [1.25, 1.4375, 1],
+        "translation": [0, 0.6666, 0]
+      }
+    }
   }
