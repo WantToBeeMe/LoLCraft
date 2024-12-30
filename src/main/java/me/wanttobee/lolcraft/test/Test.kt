@@ -41,7 +41,7 @@ object Test {
 
         s.setAbility(CastAbilityState(s, TestAbilityE).postInitialize())
         s.setAbility(CastAbilityState(s, TestAbilityW).postInitialize())
-        s.setAbility(RecastAbilityState(s, TestRecastAbility).postInitialize())
+        s.setAbility(ChannelAbilityState(s, TestRecastAbility).postInitialize())
         s.setAbility(ToggleAbilityState(s, TestToggleAbility).postInitialize())
         s.setAbility(PassiveAbilityState(s, TestPassiveAbility).postInitialize())
 

@@ -12,8 +12,9 @@ object TestAbilityW : IAbility<TestChampion> {
     override val maxLevel: Int = 5
 
     override fun initializeState(state: BaseAbilityState<TestChampion>) {
-        val passiveState = state as PassiveAbilityState
-        passiveState.maxCoolDown = 6.0
+        if(state !is PassiveAbilityState) return
+
+        state.maxCoolDown = 6.0
     }
 
     override fun invokeInitial(state: BaseAbilityState<TestChampion>) {

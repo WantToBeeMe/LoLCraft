@@ -26,6 +26,8 @@ open class RecastAbilityState<T>(championState: T, ability : IAbility<T>) : Togg
         isToggled = true
         ability.invokeInitial(this)
 
+        startCoolDown(recastCoolDown)
+
         channelTask = Bukkit.getScheduler().scheduleSyncRepeatingTask(MinecraftPlugin.instance, {
             channelTime += 0.1
 
@@ -43,7 +45,7 @@ open class RecastAbilityState<T>(championState: T, ability : IAbility<T>) : Togg
         }
 
         channelTime = 0.0
-        //startCoolDown()
+        startCoolDown(recastCoolDown)
     }
 
     override fun invokeAbilityCancel(){
@@ -52,7 +54,6 @@ open class RecastAbilityState<T>(championState: T, ability : IAbility<T>) : Togg
         cancelTask()
         ability.invokeAbilityCancel(this, channelTime)
         channelTime = 0.0
-
         startCoolDown()
     }
 

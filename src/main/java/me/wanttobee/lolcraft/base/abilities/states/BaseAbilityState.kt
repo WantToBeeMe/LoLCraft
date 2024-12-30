@@ -20,6 +20,10 @@ open class BaseAbilityState<T>(val championState: T, val ability : IAbility<T>) 
     var initialized: Boolean = false
         private set
 
+    // Not usefully for all abilities
+    var level: Int = 0
+        private set
+
     init {
         owner.state.disrupts.subscribe(::onStunOrSilence)
         item.setMaxLevel(ability.maxLevel)
@@ -51,5 +55,19 @@ open class BaseAbilityState<T>(val championState: T, val ability : IAbility<T>) 
         ability.initializeState(this)
         initialized = true
         return this
+    }
+
+    // TODO: This should also be locked behind a "CanUpgrade" method or something
+    //  That if it does not have the upgrade icon, that it also can't actually upgrade or something
+    fun upgrade() {
+        if(ability.maxLevel == 0)
+            throw IllegalStateException("Cannot upgrade an ability that has no levels. [ability: ${ability.title} - player: ${owner.player.name}]")
+
+        if (level >= ability.maxLevel)
+            return
+        level++
+        item.setCurrentLevel(level)
+
+        ability.onAbilityLevelUp(this)
     }
 }

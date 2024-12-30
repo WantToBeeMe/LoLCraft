@@ -19,6 +19,23 @@ class PlayerSettings(override val context: PlayerContext) : IPlayerContextPart {
             if(value) context.player.inventory.heldItemSlot = AbilitySlot.PASSIVE.index
         }
 
+
+    // TODO: Write description for this setting
+    private var _channelAsRecast = false
+    var channelAsRecast: Boolean
+        get() = _channelAsRecast
+        set(value) {
+            _channelAsRecast = value
+        }
+
+    // TODO: ChannelBuffer
+    private var _channelBuffer = 5L
+    var channelBuffer: Long
+        get() = _channelBuffer
+        set(value) {
+            _channelBuffer = value.coerceIn(2L,30L)
+        }
+
     fun openSettings(){
         inventory.open(context.player)
     }

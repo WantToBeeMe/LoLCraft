@@ -12,6 +12,8 @@ interface IAbility<T>  where T : ChampionState {
 
     fun initializeState(state: BaseAbilityState<T>)
 
+    fun onAbilityLevelUp(state: BaseAbilityState<T>) { }
+
     // -=- Invoke Ability -=-
     // Note that you can access player context by doing `state.owner`
     // Note that you can access ChampionState by doing `state.championState`

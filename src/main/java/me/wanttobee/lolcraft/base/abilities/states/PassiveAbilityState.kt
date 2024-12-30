@@ -17,15 +17,20 @@ open class PassiveAbilityState<T>(championState: T, ability : IAbility<T>)  : Ba
             throw IllegalStateException("Cannot invoke passive on an ability that has not been initialized yet. " +
                     "[ability: ${ability.title} - player: ${owner.player.name}]")
 
-        if(currentCoolDown > 0.0 || isDisrupted)
+        if(!canCast())
             return
 
         ability.invokeInitial(this)
         startCoolDown()
     }
 
-    fun startCoolDown() {
-        currentCoolDown = maxCoolDown + 1 // We do + 1 since we do to subtract 1 in the task immediately
+    protected fun canCast() : Boolean {
+        val rightLevel = ability.maxLevel == 0 || level > 0
+        return currentCoolDown <= 0.0 && !isDisrupted && rightLevel
+    }
+
+    protected fun startCoolDown(cooldownTime: Double = maxCoolDown){
+        currentCoolDown = cooldownTime + 1 // We do + 1 since we do to subtract 1 in the task immediately
 
         // restarting when for some reason the coolDown already exists
         // this should actually never happen, but you never know
@@ -51,9 +56,8 @@ open class PassiveAbilityState<T>(championState: T, ability : IAbility<T>)  : Ba
                         }
                     }, 4L, 4L)
                 }
-                if(!useSmallTickRate) {
-                    item.setOnCoolDown(currentCoolDown)
-                }
+
+                item.setOnCoolDown(currentCoolDown)
             }
             else {
                 coolDownTaskId?.let { Bukkit.getScheduler().cancelTask(it) }

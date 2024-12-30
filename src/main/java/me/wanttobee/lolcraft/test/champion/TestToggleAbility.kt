@@ -4,6 +4,7 @@ import me.wanttobee.lolcraft.MinecraftPlugin
 import me.wanttobee.lolcraft.base.abilities.states.BaseAbilityState
 import me.wanttobee.lolcraft.base.abilities.IAbility
 import me.wanttobee.lolcraft.base.abilities.states.PassiveAbilityState
+import me.wanttobee.lolcraft.base.abilities.states.RecastAbilityState
 import me.wanttobee.lolcraft.base.util.AbilitySlot
 import org.bukkit.Bukkit
 
@@ -14,8 +15,10 @@ object TestToggleAbility : IAbility<TestChampion> {
     override val maxLevel: Int = 3
 
     override fun initializeState(state: BaseAbilityState<TestChampion>) {
-        val passiveState = state as PassiveAbilityState
-        passiveState.maxCoolDown = 2.0
+        if(state !is PassiveAbilityState) return
+
+        state.maxCoolDown = 2.0
+        state.upgrade()
     }
 
     private fun iterate(state: BaseAbilityState<TestChampion>){

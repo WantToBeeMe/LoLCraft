@@ -17,6 +17,9 @@ object TestRecastAbility : IAbility<TestChampion> {
 
         state.maxCoolDown = 6.0
         state.maxChannelTime = 3.0
+        state.upgrade()
+        state.upgrade()
+        state.upgrade()
     }
 
     override fun invokeInitial(state: BaseAbilityState<TestChampion>) {
@@ -24,6 +27,6 @@ object TestRecastAbility : IAbility<TestChampion> {
     }
 
     override fun invokeRecast(state: BaseAbilityState<TestChampion>, channelTime: Double, recastCount: Int) {
-        state.owner.player.sendMessage("Recast ended at $channelTime - $recastCount")
+        state.owner.player.sendMessage("Recast at $channelTime - $recastCount")
     }
 }

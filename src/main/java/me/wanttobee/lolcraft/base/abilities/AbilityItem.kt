@@ -30,6 +30,7 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
     private var stateSilenced = false
     private var stateNoMana = false
     private var stateDisabled = false
+    private var notUpgraded = false
     private var stateOnCoolDown : Double = 0.0
     private var currentUpgradeAvailable = false
     private var currentState = ""
@@ -80,7 +81,8 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
 
     private fun resetCMDState() : Boolean{
         var newState = ""
-        if(stateNoMana) newState = "no_mana"
+        if(notUpgraded) newState = "disabled"
+        else if(stateNoMana) newState = "no_mana"
         else if(stateSilenced) newState = "silenced"
         else if(stateOnCoolDown > 0.0) { newState = "on_cooldown" }
         else if(stateDisabled) newState = "disabled"
@@ -104,20 +106,28 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         if(level != 0 && level != 3 && level != 5)
             throw Error("`setMaxLevel can only receive a value of '0', '3' or '5'")
         maxLevel = level
+        if(maxLevel != 0)
+            notUpgraded = true
         resetCMDLevel()
     }
     fun setCurrentLevel(level: Int){
         val clamped = level.coerceIn(0..maxLevel)
         if(clamped == currentLevel) return
         currentLevel = clamped
+        if(currentLevel > 0)
+            notUpgraded = false
         resetCMDLevel()
     }
     private fun resetCMDLevel(){
-        if(maxLevel == 0)
+        if(maxLevel == 0){
             updateStringCMD("", StickCMDIndex.LEVELS.index)
-        else
-            updateStringCMD("levels${maxLevel}_$currentLevel",StickCMDIndex.LEVELS.index)
-        pushUpdates()
+            pushUpdates()
+            return
+        }
+
+        updateStringCMD("levels${maxLevel}_$currentLevel",StickCMDIndex.LEVELS.index)
+        if(resetCMDState())
+            pushUpdates()
     }
 
     private fun setCooldownCount(count: Double){

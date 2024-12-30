@@ -16,7 +16,7 @@ open class ToggleAbilityState<T>(championState: T, ability : IAbility<T>)  : Cas
         }
 
     protected open val longPressSafetyDelay = 5L
-    private var longPressSafeTask : Int? = null
+    protected var longPressSafeTask : Int? = null
 
     // this method gets called when you right-click the item
     override fun invokeRightClick(){
@@ -24,7 +24,7 @@ open class ToggleAbilityState<T>(championState: T, ability : IAbility<T>)  : Cas
             throw IllegalStateException("Cannot invoke passive on an/gi ability that has not been initialized yet. " +
                     "[ability: ${ability.title} - player: ${owner.player.name}]")
 
-        if(currentCoolDown > 0 || isDisrupted)
+        if(!canCast())
             return
 
         if(longPressSafeTask == null){
