@@ -15,7 +15,7 @@ object TestRecastAbility : IAbility<TestChampion> {
     override fun initializeState(state: BaseAbilityState<TestChampion>) {
         if(state !is RecastAbilityState) return
 
-        state.maxCoolDown = 6
+        state.maxCoolDown = 6.0
         state.maxChannelTime = 3.0
     }
 

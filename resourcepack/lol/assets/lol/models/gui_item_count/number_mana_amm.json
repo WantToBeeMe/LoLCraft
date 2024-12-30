@@ -1,0 +1,12 @@
+{
+    "parent": "lol:base/gui_only",
+    "display": {
+        "gui": {
+            "translation": [
+                -4,
+                8,
+                0
+            ]
+        }
+    }
+}

@@ -216,73 +216,143 @@
 				},
 				"cases": [
 					{
-						"when": "1th_0",
+						"when": "number_0xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_0"
+							"model": "lol:gui_item_count/number_cooldown_0xx"
 						}
 					},
 					{
-						"when": "1th_1",
+						"when": "number_1xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_1"
+							"model": "lol:gui_item_count/number_cooldown_1xx"
 						}
 					},
 					{
-						"when": "1th_2",
+						"when": "number_2xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_2"
+							"model": "lol:gui_item_count/number_cooldown_2xx"
 						}
 					},
 					{
-						"when": "1th_3",
+						"when": "number_3xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_3"
+							"model": "lol:gui_item_count/number_cooldown_3xx"
 						}
 					},
 					{
-						"when": "1th_4",
+						"when": "number_4xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_4"
+							"model": "lol:gui_item_count/number_cooldown_4xx"
 						}
 					},
 					{
-						"when": "1th_5",
+						"when": "number_5xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_5"
+							"model": "lol:gui_item_count/number_cooldown_5xx"
 						}
 					},
 					{
-						"when": "1th_6",
+						"when": "number_6xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_6"
+							"model": "lol:gui_item_count/number_cooldown_6xx"
 						}
 					},
 					{
-						"when": "1th_7",
+						"when": "number_7xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_7"
+							"model": "lol:gui_item_count/number_cooldown_7xx"
 						}
 					},
 					{
-						"when": "1th_8",
+						"when": "number_8xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_8"
+							"model": "lol:gui_item_count/number_cooldown_8xx"
 						}
 					},
 					{
-						"when": "1th_9",
+						"when": "number_9xx",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/1th_9"
+							"model": "lol:gui_item_count/number_cooldown_9xx"
+						}
+					},
+					{
+						"when": "number_0y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_0y"
+						}
+					},
+					{
+						"when": "number_1y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_1y"
+						}
+					},
+					{
+						"when": "number_2y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_2y"
+						}
+					},
+					{
+						"when": "number_3y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_3y"
+						}
+					},
+					{
+						"when": "number_4y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_4y"
+						}
+					},
+					{
+						"when": "number_5y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_5y"
+						}
+					},
+					{
+						"when": "number_6y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_6y"
+						}
+					},
+					{
+						"when": "number_7y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_7y"
+						}
+					},
+					{
+						"when": "number_8y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_8y"
+						}
+					},
+					{
+						"when": "number_9y",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_9y"
 						}
 					}
 				]
@@ -296,10 +366,80 @@
 				},
 				"cases": [
 					{
-						"when": "2th_0",
+						"when": "number_x0x",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/2th_0"
+							"model": "lol:gui_item_count/number_cooldown_x0x"
+						}
+					},
+					{
+						"when": "number_x1x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x1x"
+						}
+					},
+					{
+						"when": "number_x2x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x2x"
+						}
+					},
+					{
+						"when": "number_x3x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x3x"
+						}
+					},
+					{
+						"when": "number_x4x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x4x"
+						}
+					},
+					{
+						"when": "number_x5x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x5x"
+						}
+					},
+					{
+						"when": "number_x6x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x6x"
+						}
+					},
+					{
+						"when": "number_x7x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x7x"
+						}
+					},
+					{
+						"when": "number_x8x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x8x"
+						}
+					},
+					{
+						"when": "number_x9x",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_x9x"
+						}
+					},
+					{
+						"when": "number_xsx",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xsx"
 						}
 					}
 				]
@@ -313,17 +453,383 @@
 				},
 				"cases": [
 					{
-						"when": "3th_0",
+						"when": "number_xx0",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/3th_0"
+							"model": "lol:gui_item_count/number_cooldown_xx0"
 						}
 					},
 					{
-						"when": "3th_1",
+						"when": "number_xx1",
 						"model": {
 							"type": "model",
-							"model": "lol:gui_item_count/3th_1"
+							"model": "lol:gui_item_count/number_cooldown_xx1"
+						}
+					},
+					{
+						"when": "number_xx2",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx2"
+						}
+					},
+					{
+						"when": "number_xx3",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx3"
+						}
+					},
+					{
+						"when": "number_xx4",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx4"
+						}
+					},
+					{
+						"when": "number_xx5",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx5"
+						}
+					},
+					{
+						"when": "number_xx6",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx6"
+						}
+					},
+					{
+						"when": "number_xx7",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx7"
+						}
+					},
+					{
+						"when": "number_xx8",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx8"
+						}
+					},
+					{
+						"when": "number_xx9",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_xx9"
+						}
+					},
+					{
+						"when": "number_y0",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y0"
+						}
+					},
+					{
+						"when": "number_y1",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y1"
+						}
+					},
+					{
+						"when": "number_y2",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y2"
+						}
+					},
+					{
+						"when": "number_y3",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y3"
+						}
+					},
+					{
+						"when": "number_y4",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y4"
+						}
+					},
+					{
+						"when": "number_y5",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y5"
+						}
+					},
+					{
+						"when": "number_y6",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y6"
+						}
+					},
+					{
+						"when": "number_y7",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y7"
+						}
+					},
+					{
+						"when": "number_y8",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y8"
+						}
+					},
+					{
+						"when": "number_y9",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_cooldown_y9"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 8,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "number_0mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_0mm"
+						}
+					},
+					{
+						"when": "number_1mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_1mm"
+						}
+					},
+					{
+						"when": "number_2mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_2mm"
+						}
+					},
+					{
+						"when": "number_3mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_3mm"
+						}
+					},
+					{
+						"when": "number_4mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_4mm"
+						}
+					},
+					{
+						"when": "number_5mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_5mm"
+						}
+					},
+					{
+						"when": "number_6mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_6mm"
+						}
+					},
+					{
+						"when": "number_7mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_7mm"
+						}
+					},
+					{
+						"when": "number_8mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_8mm"
+						}
+					},
+					{
+						"when": "number_9mm",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_9mm"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 9,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "number_m0m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m0m"
+						}
+					},
+					{
+						"when": "number_m1m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m1m"
+						}
+					},
+					{
+						"when": "number_m2m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m2m"
+						}
+					},
+					{
+						"when": "number_m3m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m3m"
+						}
+					},
+					{
+						"when": "number_m4m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m4m"
+						}
+					},
+					{
+						"when": "number_m5m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m5m"
+						}
+					},
+					{
+						"when": "number_m6m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m6m"
+						}
+					},
+					{
+						"when": "number_m7m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m7m"
+						}
+					},
+					{
+						"when": "number_m8m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m8m"
+						}
+					},
+					{
+						"when": "number_m9m",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_m9m"
+						}
+					}
+				]
+			},
+			{
+				"type": "select",
+				"index": 10,
+				"property": "custom_model_data",
+				"fallback": {
+					"type": "empty"
+				},
+				"cases": [
+					{
+						"when": "number_mm0",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm0"
+						}
+					},
+					{
+						"when": "number_mm1",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm1"
+						}
+					},
+					{
+						"when": "number_mm2",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm2"
+						}
+					},
+					{
+						"when": "number_mm3",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm3"
+						}
+					},
+					{
+						"when": "number_mm4",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm4"
+						}
+					},
+					{
+						"when": "number_mm5",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm5"
+						}
+					},
+					{
+						"when": "number_mm6",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm6"
+						}
+					},
+					{
+						"when": "number_mm7",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm7"
+						}
+					},
+					{
+						"when": "number_mm8",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm8"
+						}
+					},
+					{
+						"when": "number_mm9",
+						"model": {
+							"type": "model",
+							"model": "lol:gui_item_count/number_mana_mm9"
 						}
 					}
 				]

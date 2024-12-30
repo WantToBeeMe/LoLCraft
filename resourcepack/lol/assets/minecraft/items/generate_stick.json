@@ -41,24 +41,121 @@
 		{ "when": "upgrade", "model": "lol:ability_overlays/upgrade" }
 	],
 
+
+
+
+
+
+
+
+	// So basically, numbers are painfull to do in minecraft, and you cant go above 99, so i had to add the nubers in the 100th
+	// But then i might aswell just redo all the numbers so i can actually decide the placement of the numbers
+	// so thats what i did. and thats this painfully long list ;-;
+
 	"overlays_layer_5":[
-		{ "when": "1th_0", "model": "lol:gui_item_count/1th_0" },
-		{ "when": "1th_1", "model": "lol:gui_item_count/1th_1" },
-		{ "when": "1th_2", "model": "lol:gui_item_count/1th_2" },
-		{ "when": "1th_3", "model": "lol:gui_item_count/1th_3" },
-		{ "when": "1th_4", "model": "lol:gui_item_count/1th_4" },
-		{ "when": "1th_5", "model": "lol:gui_item_count/1th_5" },
-		{ "when": "1th_6", "model": "lol:gui_item_count/1th_6" },
-		{ "when": "1th_7", "model": "lol:gui_item_count/1th_7" },
-		{ "when": "1th_8", "model": "lol:gui_item_count/1th_8" },
-		{ "when": "1th_9", "model": "lol:gui_item_count/1th_9" }
+		// The Left number of a 3 digit cooldown
+		{ "when": "number_0xx", "model": "lol:gui_item_count/number_cooldown_0xx" },
+		{ "when": "number_1xx", "model": "lol:gui_item_count/number_cooldown_1xx" },
+		{ "when": "number_2xx", "model": "lol:gui_item_count/number_cooldown_2xx" },
+		{ "when": "number_3xx", "model": "lol:gui_item_count/number_cooldown_3xx" },
+		{ "when": "number_4xx", "model": "lol:gui_item_count/number_cooldown_4xx" },
+		{ "when": "number_5xx", "model": "lol:gui_item_count/number_cooldown_5xx" },
+		{ "when": "number_6xx", "model": "lol:gui_item_count/number_cooldown_6xx" },
+		{ "when": "number_7xx", "model": "lol:gui_item_count/number_cooldown_7xx" },
+		{ "when": "number_8xx", "model": "lol:gui_item_count/number_cooldown_8xx" },
+		{ "when": "number_9xx", "model": "lol:gui_item_count/number_cooldown_9xx" },
+		
+		// The Left number of a 2 digit cooldown
+		{ "when": "number_0y", "model": "lol:gui_item_count/number_cooldown_0y" },
+		{ "when": "number_1y", "model": "lol:gui_item_count/number_cooldown_1y" },
+		{ "when": "number_2y", "model": "lol:gui_item_count/number_cooldown_2y" },
+		{ "when": "number_3y", "model": "lol:gui_item_count/number_cooldown_3y" },
+		{ "when": "number_4y", "model": "lol:gui_item_count/number_cooldown_4y" },
+		{ "when": "number_5y", "model": "lol:gui_item_count/number_cooldown_5y" },
+		{ "when": "number_6y", "model": "lol:gui_item_count/number_cooldown_6y" },
+		{ "when": "number_7y", "model": "lol:gui_item_count/number_cooldown_7y" },
+		{ "when": "number_8y", "model": "lol:gui_item_count/number_cooldown_8y" },
+		{ "when": "number_9y", "model": "lol:gui_item_count/number_cooldown_9y" }
 	],
-	"overlays_layer_6":[	
-		{ "when": "2th_0", "model": "lol:gui_item_count/2th_0" }
+	"overlays_layer_6":[
+		// The Middle numbers of a 3 digit cooldown number
+		{ "when": "number_x0x", "model": "lol:gui_item_count/number_cooldown_x0x" },
+		{ "when": "number_x1x", "model": "lol:gui_item_count/number_cooldown_x1x" },
+		{ "when": "number_x2x", "model": "lol:gui_item_count/number_cooldown_x2x" },
+		{ "when": "number_x3x", "model": "lol:gui_item_count/number_cooldown_x3x" },
+		{ "when": "number_x4x", "model": "lol:gui_item_count/number_cooldown_x4x" },
+		{ "when": "number_x5x", "model": "lol:gui_item_count/number_cooldown_x5x" },
+		{ "when": "number_x6x", "model": "lol:gui_item_count/number_cooldown_x6x" },
+		{ "when": "number_x7x", "model": "lol:gui_item_count/number_cooldown_x7x" },
+		{ "when": "number_x8x", "model": "lol:gui_item_count/number_cooldown_x8x" },
+		{ "when": "number_x9x", "model": "lol:gui_item_count/number_cooldown_x9x" },
+		// Seporator
+		{ "when": "number_xsx", "model": "lol:gui_item_count/number_cooldown_xsx" }
 	],
 	"overlays_layer_7":[
-		{ "when": "3th_0", "model": "lol:gui_item_count/3th_0" },
-		{ "when": "3th_1", "model": "lol:gui_item_count/3th_1" }
-	]
+		// The Right number of a 3 digit cooldown
+		{ "when": "number_xx0", "model": "lol:gui_item_count/number_cooldown_xx0" },
+		{ "when": "number_xx1", "model": "lol:gui_item_count/number_cooldown_xx1" },
+		{ "when": "number_xx2", "model": "lol:gui_item_count/number_cooldown_xx2" },
+		{ "when": "number_xx3", "model": "lol:gui_item_count/number_cooldown_xx3" },
+		{ "when": "number_xx4", "model": "lol:gui_item_count/number_cooldown_xx4" },
+		{ "when": "number_xx5", "model": "lol:gui_item_count/number_cooldown_xx5" },
+		{ "when": "number_xx6", "model": "lol:gui_item_count/number_cooldown_xx6" },
+		{ "when": "number_xx7", "model": "lol:gui_item_count/number_cooldown_xx7" },
+		{ "when": "number_xx8", "model": "lol:gui_item_count/number_cooldown_xx8" },
+		{ "when": "number_xx9", "model": "lol:gui_item_count/number_cooldown_xx9" },
+		
+		// The Right number of a 2 digit cooldown
+		{ "when": "number_y0", "model": "lol:gui_item_count/number_cooldown_y0" },
+		{ "when": "number_y1", "model": "lol:gui_item_count/number_cooldown_y1" },
+		{ "when": "number_y2", "model": "lol:gui_item_count/number_cooldown_y2" },
+		{ "when": "number_y3", "model": "lol:gui_item_count/number_cooldown_y3" },
+		{ "when": "number_y4", "model": "lol:gui_item_count/number_cooldown_y4" },
+		{ "when": "number_y5", "model": "lol:gui_item_count/number_cooldown_y5" },
+		{ "when": "number_y6", "model": "lol:gui_item_count/number_cooldown_y6" },
+		{ "when": "number_y7", "model": "lol:gui_item_count/number_cooldown_y7" },
+		{ "when": "number_y8", "model": "lol:gui_item_count/number_cooldown_y8" },
+		{ "when": "number_y9", "model": "lol:gui_item_count/number_cooldown_y9" }
+	],	
+	"overlays_layer_8":[
+		// The Left number of a 3 mana digits
+		{ "when": "number_0mm", "model": "lol:gui_item_count/number_mana_0mm" },
+		{ "when": "number_1mm", "model": "lol:gui_item_count/number_mana_1mm" },
+		{ "when": "number_2mm", "model": "lol:gui_item_count/number_mana_2mm" },
+		{ "when": "number_3mm", "model": "lol:gui_item_count/number_mana_3mm" },
+		{ "when": "number_4mm", "model": "lol:gui_item_count/number_mana_4mm" },
+		{ "when": "number_5mm", "model": "lol:gui_item_count/number_mana_5mm" },
+		{ "when": "number_6mm", "model": "lol:gui_item_count/number_mana_6mm" },
+		{ "when": "number_7mm", "model": "lol:gui_item_count/number_mana_7mm" },
+		{ "when": "number_8mm", "model": "lol:gui_item_count/number_mana_8mm" },
+		{ "when": "number_9mm", "model": "lol:gui_item_count/number_mana_9mm" }
+	],
 
+	"overlays_layer_9":[
+		// The Mid number of a 3 mana digits 
+		{ "when": "number_m0m", "model": "lol:gui_item_count/number_mana_m0m" },
+		{ "when": "number_m1m", "model": "lol:gui_item_count/number_mana_m1m" },
+		{ "when": "number_m2m", "model": "lol:gui_item_count/number_mana_m2m" },
+		{ "when": "number_m3m", "model": "lol:gui_item_count/number_mana_m3m" },
+		{ "when": "number_m4m", "model": "lol:gui_item_count/number_mana_m4m" },
+		{ "when": "number_m5m", "model": "lol:gui_item_count/number_mana_m5m" },
+		{ "when": "number_m6m", "model": "lol:gui_item_count/number_mana_m6m" },
+		{ "when": "number_m7m", "model": "lol:gui_item_count/number_mana_m7m" },
+		{ "when": "number_m8m", "model": "lol:gui_item_count/number_mana_m8m" },
+		{ "when": "number_m9m", "model": "lol:gui_item_count/number_mana_m9m" }
+	],
+	"overlays_layer_10":[
+		// The Right number of a 3 digits digits
+		{ "when": "number_mm0", "model": "lol:gui_item_count/number_mana_mm0" },
+		{ "when": "number_mm1", "model": "lol:gui_item_count/number_mana_mm1" },
+		{ "when": "number_mm2", "model": "lol:gui_item_count/number_mana_mm2" },
+		{ "when": "number_mm3", "model": "lol:gui_item_count/number_mana_mm3" },
+		{ "when": "number_mm4", "model": "lol:gui_item_count/number_mana_mm4" },
+		{ "when": "number_mm5", "model": "lol:gui_item_count/number_mana_mm5" },
+		{ "when": "number_mm6", "model": "lol:gui_item_count/number_mana_mm6" },
+		{ "when": "number_mm7", "model": "lol:gui_item_count/number_mana_mm7" },
+		{ "when": "number_mm8", "model": "lol:gui_item_count/number_mana_mm8" },
+		{ "when": "number_mm9", "model": "lol:gui_item_count/number_mana_mm9" }
+	]
+	
 }

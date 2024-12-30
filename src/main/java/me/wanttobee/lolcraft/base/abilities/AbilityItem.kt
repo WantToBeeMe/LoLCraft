@@ -7,6 +7,9 @@ import org.bukkit.Material
 // Only responsible for the visual bit of the ability, aka the icon/item
 //       -=-
 class AbilityItem(private var iconName: String ,title: String, lore: List<String>? ) : UniqueItemStack(Material.STICK, title, lore, 1) {
+    companion object{
+        const val CooldownDecimalThreshold = 3.0 // must  be lower than 10
+    }
 
     private enum class StickCMDIndex(val index: Int) {
         BASE(0),
@@ -15,19 +18,19 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         LEVELS(3),
         UPGRADE(4),
 
-        // "1th" = 1st is the first place of the 3-digit number, ake the 1 in 100
-        // (yes I know, "1th" is incorrect and it should be 1st. But no one sees it,
-        // and I am not planning to make the code more complicated just so its grammatically correct under the hood)
-        ITEM_COUNT_1TH(5), // This is to display other numbers above 100
-        ITEM_COUNT_2TH(6), // just 0, that way we can display the middle 0 of 100/200/300/...
-        ITEM_COUNT_3TH(7) // just 1 & 0, that way we can actually show the last digit of 100/101/200/201/...
+        COOLDOWN_NUMBER_1TH(5), // This is to display other numbers above 100
+        COOLDOWN_NUMBER_2TH(6), // just 0, that way we can display the middle 0 of 100/200/300/...
+        COOLDOWN_NUMBER_3TH(7), // just 1 & 0, that way we can actually show the last digit of 100/101/200/201/...
+        MANA_NUMBER_1TH(8),
+        MANA_NUMBER_2TH(9),
+        MANA_NUMBER_3TH(10)
     }
     // All attributes for the CMD
     private var stateRecast = false
     private var stateSilenced = false
     private var stateNoMana = false
     private var stateDisabled = false
-    private var stateOnCoolDown : Int = 0
+    private var stateOnCoolDown : Double = 0.0
     private var currentUpgradeAvailable = false
     private var currentState = ""
     private var currentLevel = 0
@@ -68,9 +71,9 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         stateDisabled = value
         resetCMDState()
     }
-    fun setOnCoolDown(value: Int) {
+    fun setOnCoolDown(value: Double) {
         stateOnCoolDown = value
-        setCount(value, value != 0)
+        setCooldownCount(stateOnCoolDown)
         val pushed = resetCMDState()
         if(!pushed) pushUpdates()
     }
@@ -79,7 +82,7 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         var newState = ""
         if(stateNoMana) newState = "no_mana"
         else if(stateSilenced) newState = "silenced"
-        else if(stateOnCoolDown != 0) { newState = "on_cooldown" }
+        else if(stateOnCoolDown > 0.0) { newState = "on_cooldown" }
         else if(stateDisabled) newState = "disabled"
 
         if(currentState == newState) return false
@@ -117,34 +120,39 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         pushUpdates()
     }
 
-    private fun setCount(value: Int, displayOne: Boolean, displayZero: Boolean = false){
-        var displayNumber = value
+    private fun setCooldownCount(count: Double){
         val displayCMD = arrayOf("","","") // (1th, 2th, 3th)
+        val cooldownInt = count.toInt()
 
-        if(value <= 0 && displayZero)
-            displayCMD[2] = "3th_0"
-        else if(value == 1 && displayOne)
-            displayCMD[2] = "3th_1"
-        else if(value >= 999 && displayOne){
-            displayCMD[2] = "3th_9"
-            displayNumber = 99
+        if(count <= 0.0){
+            displayCMD[0] = ""
+            displayCMD[1] = ""
+            displayCMD[2] = ""
         }
-        else if(value >= 100 && displayOne){
-            displayNumber = value % 100
-            val hundredNumber = (value / 100)
-            displayCMD[0] = "1th_$hundredNumber"
-            if (displayNumber < 10) // 0 through 9
-                displayCMD[1] = "2th_0"
-            if (displayNumber <= 1) // 0 or 1
-                displayCMD[2] = "3th_$displayNumber"
+        else if(count < CooldownDecimalThreshold){
+            displayCMD[0] = "number_${cooldownInt}xx"
+            displayCMD[1] = "number_xsx"
+            val decimalNumber = (count - cooldownInt) * 10
+            displayCMD[2] = "number_xx${ decimalNumber.toInt() % 10}"
+        }
+        else if(count < 100 && count >= 10){
+            displayCMD[0] = "number_${(cooldownInt / 10) % 10}y"
+            displayCMD[1] = ""
+            displayCMD[2] = "number_y${cooldownInt % 10}"
+        }
+        else if(count < 10){
+            displayCMD[0] = ""
+            displayCMD[1] = "number_x${cooldownInt % 10}x"
+            displayCMD[2] = ""
+        }
+        else{ // 100+
+            displayCMD[0] = "number_${(cooldownInt / 100) % 10}xx"
+            displayCMD[1] = "number_x${(cooldownInt / 10) % 10}x"
+            displayCMD[2] = "number_xx${cooldownInt % 10}"
         }
 
-        updateStringCMD(displayCMD[0], StickCMDIndex.ITEM_COUNT_1TH.index)
-        updateStringCMD(displayCMD[1], StickCMDIndex.ITEM_COUNT_2TH.index)
-        updateStringCMD(displayCMD[2], StickCMDIndex.ITEM_COUNT_3TH.index)
-        updateCount(displayNumber.coerceIn(1,99))
-        // the 99 of the coerceIn should actually do nothing, if the value is above 100, then the cases before are incorrect and those should be fixed.
-        // the 99 is only there to not actually break the game, since it crashses if this input is 100+
-        // the 1 on the other hand should do something indeed, if you set the count to a real 0, then the item just vanishes. so instead
+        updateStringCMD(displayCMD[0], StickCMDIndex.COOLDOWN_NUMBER_1TH.index)
+        updateStringCMD(displayCMD[1], StickCMDIndex.COOLDOWN_NUMBER_2TH.index)
+        updateStringCMD(displayCMD[2], StickCMDIndex.COOLDOWN_NUMBER_3TH.index)
     }
 }

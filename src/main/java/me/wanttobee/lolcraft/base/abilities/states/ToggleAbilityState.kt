@@ -24,7 +24,7 @@ open class ToggleAbilityState<T>(championState: T, ability : IAbility<T>)  : Cas
             throw IllegalStateException("Cannot invoke passive on an/gi ability that has not been initialized yet. " +
                     "[ability: ${ability.title} - player: ${owner.player.name}]")
 
-        if(currentCoolDown != 0 || isDisrupted)
+        if(currentCoolDown > 0 || isDisrupted)
             return
 
         if(longPressSafeTask == null){

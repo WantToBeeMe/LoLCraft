@@ -15,7 +15,7 @@ object TestToggleAbility : IAbility<TestChampion> {
 
     override fun initializeState(state: BaseAbilityState<TestChampion>) {
         val passiveState = state as PassiveAbilityState
-        passiveState.maxCoolDown = 2
+        passiveState.maxCoolDown = 2.0
     }
 
     private fun iterate(state: BaseAbilityState<TestChampion>){

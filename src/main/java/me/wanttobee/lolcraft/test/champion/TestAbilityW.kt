@@ -13,7 +13,7 @@ object TestAbilityW : IAbility<TestChampion> {
 
     override fun initializeState(state: BaseAbilityState<TestChampion>) {
         val passiveState = state as PassiveAbilityState
-        passiveState.maxCoolDown = 6
+        passiveState.maxCoolDown = 6.0
     }
 
     override fun invokeInitial(state: BaseAbilityState<TestChampion>) {

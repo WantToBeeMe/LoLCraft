@@ -10,7 +10,12 @@ def generate_stick_json(input_file, output_file):
     """
     try:
         with open(input_file, 'r') as f:
-            data = json.load(f)
+            filtered_lines = [line for line in f if not line.strip().startswith("//")]
+            json_string = "".join(filtered_lines)
+
+            # Parse the cleaned JSON string
+            data = json.loads(json_string)
+
     except FileNotFoundError:
         print(f"Error: Input file '{input_file}' not found.")
         return
