@@ -29,7 +29,7 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
     private var stateRecast = false
     private var stateSilenced = false
     private var stateNoMana = false
-    private var stateDisabled = false
+    private var isUserDead = false
     private var notUpgraded = false
     private var stateOnCoolDown : Double = 0.0
     private var currentUpgradeAvailable = false
@@ -68,8 +68,8 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         stateNoMana = value
         resetCMDState()
     }
-    fun setDisabled(value: Boolean) {
-        stateDisabled = value
+    fun setDead(value: Boolean) {
+        isUserDead = value
         resetCMDState()
     }
     fun setOnCoolDown(value: Double) {
@@ -81,11 +81,10 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
 
     private fun resetCMDState() : Boolean{
         var newState = ""
-        if(notUpgraded) newState = "disabled"
+        if(notUpgraded || isUserDead) newState = "disabled"
         else if(stateNoMana) newState = "no_mana"
         else if(stateSilenced) newState = "silenced"
         else if(stateOnCoolDown > 0.0) { newState = "on_cooldown" }
-        else if(stateDisabled) newState = "disabled"
 
         if(currentState == newState) return false
         currentState = newState

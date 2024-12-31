@@ -10,6 +10,10 @@ import me.wanttobee.lolcraft.base.util.CCState
 //  are all the info that happens inGame
 //         -=-
 class PlayerState(override val context: PlayerContext) : IPlayerContextPart {
+    // I know this is not really CC, but I don't want to create a whole separate class for just this one thing
+    // and also its works well, so I can just put it in the CCGroups
+    val isDead = CCState("is Dead")
+
     val airborne = CCState("Airborne")
     val blinded = CCState("Blind")
     val crippled = CCState("Cripple")
@@ -33,7 +37,7 @@ class PlayerState(override val context: PlayerContext) : IPlayerContextPart {
         airborne, forceAction, sleep, stasis, stunned, suppression
     )
     val disrupts = CCGroupState("Disrupts",
-        airborne, forceAction, silenced, sleep, stasis, stunned, suppression
+        airborne, forceAction, silenced, sleep, stasis, stunned, suppression, isDead
     )
     val immobilizing = CCGroupState("Immobilizing",
         airborne, forceAction, rooted, sleep, stasis, stunned, suppression

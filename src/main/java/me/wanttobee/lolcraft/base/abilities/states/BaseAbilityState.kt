@@ -6,6 +6,7 @@ import me.wanttobee.lolcraft.base.abilities.IAbility
 import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.PlayerContext
 import me.wanttobee.lolcraft.base.util.CCGroupState
+import me.wanttobee.lolcraft.base.util.CCState
 
 // -= Ability State =-
 // This is the base ability state, and it's basically only for passives that also don't have any invoking actions
@@ -26,6 +27,7 @@ open class BaseAbilityState<T>(val championState: T, val ability : IAbility<T>) 
 
     init {
         owner.state.disrupts.subscribe(::onStunOrSilence)
+        owner.state.isDead.subscribe(::onDeath)
         item.setMaxLevel(ability.maxLevel)
     }
 
@@ -33,6 +35,10 @@ open class BaseAbilityState<T>(val championState: T, val ability : IAbility<T>) 
         isDisrupted = disrupt.value
         onDisrupted()
         item.setDisrupted(isDisrupted)
+    }
+
+    private fun onDeath(disrupt: CCState) {
+        item.setDead(isDisrupted)
     }
 
     protected open fun onDisrupted() {}
