@@ -1,4 +1,4 @@
-package me.wanttobee.lolcraft.base.players
+package me.wanttobee.lolcraft.base.players.settings
 
 import me.wanttobee.everythingitems.UniqueItemStack
 import me.wanttobee.everythingitems.interactiveinventory.InteractiveInventory

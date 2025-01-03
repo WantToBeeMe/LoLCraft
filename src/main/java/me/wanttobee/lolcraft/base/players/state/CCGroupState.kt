@@ -1,4 +1,4 @@
-package me.wanttobee.lolcraft.base.util
+package me.wanttobee.lolcraft.base.players.state
 
 // An CCGroupState is just a boolean, but it sends out a signal if it changes
 // Instead of having an initial value, this

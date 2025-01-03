@@ -1,5 +1,7 @@
-package me.wanttobee.lolcraft.base.players
+package me.wanttobee.lolcraft.base.players.settings
 
+import me.wanttobee.lolcraft.base.players.IPlayerContextPart
+import me.wanttobee.lolcraft.base.players.PlayerContext
 import me.wanttobee.lolcraft.base.util.AbilitySlot
 
 // -=- Player Settings -=-

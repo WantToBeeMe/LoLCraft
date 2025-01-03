@@ -15,16 +15,16 @@ object Test {
 
     fun setSilence(invoker: Player, value: Boolean){
         if(value)
-            silenceId = PlayerContextSystem.getContext(invoker).state.silenced.addModifier()
+            silenceId = PlayerContextSystem.getContext(invoker).playerState.silenced.addModifier()
         else
-            PlayerContextSystem.getContext(invoker).state.silenced.removeModifier(silenceId)
+            PlayerContextSystem.getContext(invoker).playerState.silenced.removeModifier(silenceId)
     }
 
     fun setStun(invoker: Player, value: Boolean){
         if(value)
-            stunId = PlayerContextSystem.getContext(invoker).state.stunned.addModifier()
+            stunId = PlayerContextSystem.getContext(invoker).playerState.stunned.addModifier()
         else
-            PlayerContextSystem.getContext(invoker).state.stunned.removeModifier(stunId)
+            PlayerContextSystem.getContext(invoker).playerState.stunned.removeModifier(stunId)
     }
 
 

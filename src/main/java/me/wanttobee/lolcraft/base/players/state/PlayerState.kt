@@ -1,8 +1,8 @@
-package me.wanttobee.lolcraft.base.players
+package me.wanttobee.lolcraft.base.players.state
 
 import me.wanttobee.everythingitems.interactiveitems.InteractiveHotBarItem
-import me.wanttobee.lolcraft.base.util.CCGroupState
-import me.wanttobee.lolcraft.base.util.CCState
+import me.wanttobee.lolcraft.base.players.IPlayerContextPart
+import me.wanttobee.lolcraft.base.players.PlayerContext
 
 // TODO: Subject to change
 // -=- Player State -=-

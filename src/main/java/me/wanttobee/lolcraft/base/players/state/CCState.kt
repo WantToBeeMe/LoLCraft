@@ -1,4 +1,4 @@
-package me.wanttobee.lolcraft.base.util
+package me.wanttobee.lolcraft.base.players.state
 
 // An CCState is just a boolean, but it sends out a signal if it changes
 // anny modifier you apply will make the boolean the inverse of what it currently is, if there are no modifiers, then it's the default value
