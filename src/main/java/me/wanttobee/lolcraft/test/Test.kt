@@ -27,12 +27,12 @@ object Test {
             PlayerContextSystem.getContext(invoker).playerState.stunned.removeModifier(stunId)
     }
 
-
-
-
     private fun getChampionState(invoker: Player): TestChampion{
-        if(championState == null)
-            championState = TestChampion(PlayerContextSystem.getContext(invoker))
+        if(championState == null){
+            val context = PlayerContextSystem.getContext(invoker)
+            championState = TestChampion(context)
+            context.setChampionState(championState) // IMPORTANT: This can not be in the init of the ChampionState, since then the ChampionStats are not set yet
+        }
         return championState!!
     }
 

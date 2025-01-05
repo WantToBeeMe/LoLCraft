@@ -1,5 +1,5 @@
 {
-    "parent": "lol:gui_item_count/number_cooldown_mam",
+    "parent": "lol:gui_item_count/number_mana_mam",
     "textures": {
         "layer0": "lol:item/gui_item_count/number_8"
     }

@@ -8,17 +8,17 @@ object TestChampionStats : ChampionStats() {
     override val baseMana = 350
     override val baseManaPerLevel = 40
 
-    override val baseHealthRegen = 3.75
-    override val baseHealthRegenPerLevel = 0.65
-    override val baseManaRegen = 8.2
-    override val baseManaRegenPerLevel = 0.7
+    override val baseHealthRegen = 3.75f
+    override val baseHealthRegenPerLevel = 0.65f
+    override val baseManaRegen = 8.2f
+    override val baseManaRegenPerLevel = 0.7f
 
-    override val baseArmor = 26.0
-    override val baseArmorPerLevel = 4.7
+    override val baseArmor = 26.0f
+    override val baseArmorPerLevel = 4.7f
     override val baseAttackDamage = 52
     override val baseAttackDamagePerLevel = 3
-    override val baseMagicResist = 30.0
-    override val baseMagicResistPerLevel = 1.3
+    override val baseMagicResist = 30.0f
+    override val baseMagicResistPerLevel = 1.3f
 
     override val baseCritDamage = 1.75
     override val baseMoveSpeed = 330

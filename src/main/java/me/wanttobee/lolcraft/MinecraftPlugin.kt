@@ -4,6 +4,7 @@ import me.wanttobee.commandtree.CommandTreeSystem
 import me.wanttobee.everythingitems.ItemUtil
 import me.wanttobee.lolcraft.base.abilities.AbilityUsagesListener
 import me.wanttobee.lolcraft.base.players.PlayerContextSystem
+import me.wanttobee.lolcraft.base.util.RepeatingTasks
 import me.wanttobee.lolcraft.util.LolCommands
 import me.wanttobee.lolcraft.util.MyLolCommands
 import me.wanttobee.lolcraft.test.TestLolCommands
@@ -28,12 +29,15 @@ class MinecraftPlugin : JavaPlugin() {
         CommandTreeSystem.createCommand(MyLolCommands)
         CommandTreeSystem.createCommand(TestLolCommands)
 
+        RepeatingTasks.start()
+
         server.onlinePlayers.forEach { player ->
             player.sendMessage("$title Plugin has been enabled!")
         }
     }
 
     override fun onDisable() {
+        RepeatingTasks.stop()
         ItemUtil.disablePlugin()
 
         server.onlinePlayers.forEach { player ->

@@ -2,7 +2,7 @@
     "parent": "lol:base/gui_only",
     "display": {
     "gui": {
-      "translation": [6, -2.5, 0]
+      "translation": [6, -2, 0]
     }
   }
 }

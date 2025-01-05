@@ -44,6 +44,7 @@ open class ToggleAbilityState<T>(championState: T, ability : IAbility<T>)  : Cas
     // This calls the actual implementation of the ability
     override fun invokeInitial() {
         isToggled = true
+        subtractMana()
         ability.invokeInitial(this)
     }
 

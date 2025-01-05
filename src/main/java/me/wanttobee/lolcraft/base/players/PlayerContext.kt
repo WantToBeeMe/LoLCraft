@@ -4,6 +4,7 @@ import me.wanttobee.lolcraft.base.champions.ChampionState
 import me.wanttobee.lolcraft.base.players.settings.PlayerSettings
 import me.wanttobee.lolcraft.base.players.state.PlayerState
 import me.wanttobee.lolcraft.base.players.stats.PlayerStats
+import me.wanttobee.lolcraft.base.players.ui.PlayerUI
 import org.bukkit.entity.Player
 
 // This class is basically the container of all the info about the player
@@ -19,6 +20,12 @@ class PlayerContext(private var _player: Player) {
     // Player State:
     //      the current state of the player, state things that are for all the players, regardless of what champion they are playing (lvl, stuns, xp)
     val playerState = PlayerState(this)
+
+    // UI:
+    //      the current UI of the player, UI is the visual representation of the players stats and values
+    //      This however, does not include the abilities, since they also have functionality, those als serve as functionality besides pure visuals
+    //      (For the record, those are stored in the state instead)
+    val ui: PlayerUI = PlayerUI(this)
 
     // Champion State:
     //      the current state of the players champion, state things that are specific to the champion (abilities, stacks, marks, ability things)
@@ -43,18 +50,22 @@ class PlayerContext(private var _player: Player) {
 
         championState = newChampionState
         if(newChampionState == null) {
+            ui.setPlayerStats(null)
+            _stats?.reset()
             _stats = null
             return
         }else{
             _stats = PlayerStats(this, newChampionState)
+            ui.setPlayerStats(_stats!!)
         }
+    }
+
+    fun reset() {
+        playerState.reset()
+        setChampionState(null)
     }
 
     fun swapPlayer(newPlayer: Player) {
         _player = newPlayer
-    }
-
-    fun isGameReady() : Boolean {
-        return true
     }
 }

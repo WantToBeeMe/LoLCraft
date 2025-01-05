@@ -20,10 +20,6 @@ import me.wanttobee.lolcraft.base.util.AbilitySlot
 //    Anyways, there has to be a state of the champion somewhere, to e.g. safe the jhin's shot counter, or any other champion specific stacks
 abstract class ChampionState(val owner: PlayerContext) {
 
-    init{
-        owner.setChampionState(this)
-    }
-
     abstract val stats: ChampionStats
 
     // Places the item at the slot entered, or otherwise at the default slot of the state

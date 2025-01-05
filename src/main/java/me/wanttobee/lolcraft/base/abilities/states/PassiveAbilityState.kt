@@ -24,7 +24,7 @@ open class PassiveAbilityState<T>(championState: T, ability : IAbility<T>)  : Ba
         startCoolDown()
     }
 
-    protected fun canCast() : Boolean {
+    protected open fun canCast() : Boolean {
         val rightLevel = ability.maxLevel == 0 || level > 0
         return currentCoolDown <= 0.0 && !isDisrupted && rightLevel
     }
@@ -71,6 +71,6 @@ open class PassiveAbilityState<T>(championState: T, ability : IAbility<T>)  : Ba
         coolDownTaskId?.let { Bukkit.getScheduler().cancelTask(it) }
         coolDownTaskId = null
         currentCoolDown = 0.0
-        item.setOnCoolDown(currentCoolDown)
+        item.setOnCoolDown(0.0)
     }
 }

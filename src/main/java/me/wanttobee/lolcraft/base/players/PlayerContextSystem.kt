@@ -14,8 +14,6 @@ object PlayerContextSystem : Listener {
         if (!contextList.containsKey(p))
             contextList[p] = PlayerContext(p)
         return contextList[p]!!
-
-
     }
 
     // if someone has an internet problem and they accedently leave, we don't want to ruin everything

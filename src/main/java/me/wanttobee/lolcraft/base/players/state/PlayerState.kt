@@ -3,6 +3,7 @@ package me.wanttobee.lolcraft.base.players.state
 import me.wanttobee.everythingitems.interactiveitems.InteractiveHotBarItem
 import me.wanttobee.lolcraft.base.players.IPlayerContextPart
 import me.wanttobee.lolcraft.base.players.PlayerContext
+import me.wanttobee.lolcraft.base.players.stats.DynamicStat
 
 // TODO: Subject to change
 // -=- Player State -=-
@@ -10,10 +11,31 @@ import me.wanttobee.lolcraft.base.players.PlayerContext
 //  are all the info that happens inGame
 //         -=-
 class PlayerState(override val context: PlayerContext) : IPlayerContextPart {
-    // I know this is not really CC, but I don't want to create a whole separate class for just this one thing
-    // and also its works well, so I can just put it in the CCGroups
-    val isDead = CCState("is Dead")
 
+    private val levelUpListeners = mutableListOf<(Int) -> Unit>()
+    var level = 1
+        private set
+    fun increaseLevel() {
+        level++
+        levelUpListeners.forEach { it(level) }
+    }
+    fun levelUpSubscribe(callback: (Int) -> Unit){
+        levelUpListeners.add(callback)
+    }
+    fun levelUpUnsubscribe(callback: (Int) -> Unit) : Boolean{
+        return levelUpListeners.remove(callback)
+    }
+
+    val abilities: Array<InteractiveHotBarItem?> = arrayOfNulls(9)
+
+    fun reset(){
+        level = 1
+        levelUpListeners.clear()
+        for(i in abilities.indices)
+            abilities[i] = null
+    }
+
+    // -=- CC -=-
     val airborne = CCState("Airborne")
     val blinded = CCState("Blind")
     val crippled = CCState("Cripple")
@@ -33,6 +55,10 @@ class PlayerState(override val context: PlayerContext) : IPlayerContextPart {
     val stunned = CCState("Stun")
     val suppression = CCState("Suppression")
 
+    // I know this is not really CC, but I don't want to create a whole separate class for just this one thing
+    // and also its works well, so I can just put it in the CCGroups
+    val isDead = CCState("is Dead")
+
     val totalCC = CCGroupState("Total CC",
         airborne, forceAction, sleep, stasis, stunned, suppression
     )
@@ -51,6 +77,4 @@ class PlayerState(override val context: PlayerContext) : IPlayerContextPart {
     val impairsActions = CCGroupState("Impairs actions",
         airborne, crippled, drowsy, disarmed ,forceAction, grounded, silenced, sleep, slow, rooted ,stasis, stunned, suppression
     )
-
-    val abilities: Array<InteractiveHotBarItem?> = arrayOfNulls(9)
 }

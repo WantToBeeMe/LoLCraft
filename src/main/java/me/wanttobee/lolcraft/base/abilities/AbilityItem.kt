@@ -37,6 +37,8 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
     private var currentLevel = 0
     private var maxLevel = 0
 
+    private var manaCost : Int? = null
+
 
     init{
         updateStringCMD(iconName, StickCMDIndex.BASE.index)
@@ -88,6 +90,7 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
 
         if(currentState == newState) return false
         currentState = newState
+        setManaCostCount(manaCost)
         updateStringCMD(currentState, StickCMDIndex.RESTRICTIONS.index)
         pushUpdates()
         return true
@@ -127,6 +130,29 @@ class AbilityItem(private var iconName: String ,title: String, lore: List<String
         updateStringCMD("levels${maxLevel}_$currentLevel",StickCMDIndex.LEVELS.index)
         if(resetCMDState())
             pushUpdates()
+    }
+
+    // Even if you set the mana-cost to 0, it still should display it
+    fun setManaCost(cost: Int?){
+        manaCost = cost
+        setManaCostCount(manaCost)
+        pushUpdates()
+    }
+
+    private fun setManaCostCount(count: Int?){
+        val displayCMD = arrayOf("","","") // (1th, 2th, 3th)
+        // Mana numbers should only be displayed when the player can cast it, or if its on silence or something (in both cases also without it being recastable)
+        if(count != null && (currentState == "" || currentState == "silenced") && !stateRecast){
+            if(count > 100)
+                displayCMD[0] = "number_${(count / 100) % 10}mm"
+            if(count > 10)
+                displayCMD[1] = "number_m${(count / 10) % 10}m"
+            displayCMD[2] = "number_mm${count % 10}"
+        }
+
+        updateStringCMD(displayCMD[0], StickCMDIndex.MANA_NUMBER_1TH.index)
+        updateStringCMD(displayCMD[1], StickCMDIndex.MANA_NUMBER_2TH.index)
+        updateStringCMD(displayCMD[2], StickCMDIndex.MANA_NUMBER_3TH.index)
     }
 
     private fun setCooldownCount(count: Double){
