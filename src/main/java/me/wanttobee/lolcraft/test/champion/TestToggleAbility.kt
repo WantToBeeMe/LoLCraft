@@ -4,8 +4,6 @@ import me.wanttobee.lolcraft.MinecraftPlugin
 import me.wanttobee.lolcraft.base.abilities.states.BaseAbilityState
 import me.wanttobee.lolcraft.base.abilities.IAbility
 import me.wanttobee.lolcraft.base.abilities.states.CastAbilityState
-import me.wanttobee.lolcraft.base.abilities.states.PassiveAbilityState
-import me.wanttobee.lolcraft.base.abilities.states.RecastAbilityState
 import me.wanttobee.lolcraft.base.util.AbilitySlot
 import org.bukkit.Bukkit
 

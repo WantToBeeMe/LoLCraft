@@ -1,0 +1,111 @@
+{
+	"model": {
+		"type": "select",
+		"index": 0,
+		"property": "custom_model_data",
+		"fallback": {
+			"type": "model",
+			"model": "item/diamond"
+		},
+		"cases": [
+			{
+				"when": "attack_damage",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/attack_damage"
+				}
+			},
+			{
+				"when": "ability_power",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/ability_power"
+				}
+			},
+			{
+				"when": "armor",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/armor"
+				}
+			},
+			{
+				"when": "armor_penetration",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/armor_penetration"
+				}
+			},
+			{
+				"when": "attack_range",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/attack_range"
+				}
+			},
+			{
+				"when": "attack_speed",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/attack_speed"
+				}
+			},
+			{
+				"when": "critical_chance",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/critical_chance"
+				}
+			},
+			{
+				"when": "life_steal",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/life_steal"
+				}
+			},
+			{
+				"when": "magic_penetration",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/magic_penetration"
+				}
+			},
+			{
+				"when": "magic_resist",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/magic_resist"
+				}
+			},
+			{
+				"when": "movement_speed",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/movement_speed"
+				}
+			},
+			{
+				"when": "omnivamp",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/omnivamp"
+				}
+			},
+			{
+				"when": "tenancy",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/tenancy"
+				}
+			},
+			{
+				"when": "ability_haste",
+				"model": {
+					"type": "model",
+					"model": "lol:stat_icons/ability_haste"
+				}
+			}
+		]
+	}
+}

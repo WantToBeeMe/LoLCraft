@@ -7,7 +7,8 @@ import me.wanttobee.lolcraft.base.players.stats.PlayerStats
 import me.wanttobee.lolcraft.base.util.DamageSource
 
 class PlayerUI(override val context: PlayerContext) : IPlayerContextPart {
-    private val player = context.player
+    private val player
+        get() = context.player
 
     private var playerStats: PlayerStats? = null
     fun setPlayerStats(playerStats: PlayerStats?) {
@@ -50,6 +51,6 @@ class PlayerUI(override val context: PlayerContext) : IPlayerContextPart {
     private fun onCurrentHealthChange(healthChange: Double, source: DamageSource) : Double {
         return healthChange
     }
-    private fun onMaxHealthChange(value: DynamicStat) { }
 
+    private fun onMaxHealthChange(value: DynamicStat) { }
 }
